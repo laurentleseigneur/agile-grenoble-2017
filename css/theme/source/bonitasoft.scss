@@ -1,0 +1,95 @@
+/**
+ * Bonitasoft theme for reveal.js. Based on the black theme.
+ *
+ * Copyright (C) 2016 Bonitasoft Antoine Mottier
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #222; // Dark grey
+
+$mainColor: #fff; // White
+$headingColor: #fff; // White
+
+$mainFontSize: 38px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #42affa; // Blue
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: $backgroundColor;
+	}
+}
+
+/** Custom var Bonitasoft */
+
+
+/** Custom Style Bonitasoft */
+
+
+img.width30 {
+	width: 30%;
+}
+
+
+
+img.width50 {
+	width: 50%;
+}
+
+.reveal .slides {
+	text-align: left;
+
+	h1, h2, h3, h4, h5, h6 {
+		text-align: center;
+		text-transform: none;
+	}
+}
+
+@mixin bodyBackground() {
+	background: $backgroundColor;
+	background-image: url("../../images/logo-bonitasoft.png");
+	background-position: right top;
+	background-repeat: no-repeat;
+}
+
+div.multicolumn1 {
+    -moz-column-count: 2;
+    -moz-column-gap: 50%;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 50%;
+    column-count: 3;
+    column-gap: 50%;
+}
+
+.reveal code {
+	font-family: monospace;
+	font-size: 30px;
+	color: #bbb;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

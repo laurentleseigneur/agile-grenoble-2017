@@ -1,0 +1,205 @@
+/**
+ * Bonitasoft white theme for reveal.js.
+ * Design to work with prensentation generated from AscciDoctor sources.
+ *
+ * Copyright (C) 2016 Bonitasoft Philippe Ozil - Antoine Mottier
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff; // White
+
+$mainColor: #0C334E; // Bonitasoft blue
+$headingColor: #0C334E; // Bonitasoft blue
+
+$mainFontSize: 38px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #FF3030; // Red fire brick
+$linkColorHover: #FF0000; // Red
+$selectionBackgroundColor: #0C334E; // Bonitasoft blue
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: $mainColor;
+	}
+}
+
+/** Custom var Bonitasoft */
+
+/** Color for top red line */
+$decorationColor: #E31837; // Bonitasoft red
+
+/** Custom Style Bonitasoft */
+
+/* Top red line & text color */
+.reveal {
+	border-top-width: 10px;
+	border-top-style: solid;
+	border-top-color: $decorationColor;
+}
+
+/* For element with .bonita-red class */
+.reveal .bonita-red	{
+	color: $decorationColor;
+}
+
+/* Images without borders and transparent background */
+.reveal section img	{
+	border-width: 0;
+	background-color: transparent;
+	box-shadow: none;
+}
+
+img.width30 {
+	width: 30%;
+}
+
+img.width50 {
+	width: 50%;
+}
+
+/* Presentation cover page */
+
+/* Title style */
+.reveal > .slides > section:first-child h1 {
+	padding:100px 0; margin:0; border-bottom:3px solid red; width:100%;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(151,151,151,0) 75%, rgba(201,201,201,0.65) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(151,151,151,0)), color-stop(100%,rgba(201,201,201,0.65)));
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(151,151,151,0) 75%,rgba(201,201,201,0.65) 100%);
+	background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(151,151,151,0) 75%,rgba(201,201,201,0.65) 100%);
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(151,151,151,0) 75%,rgba(201,201,201,0.65) 100%);
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(151,151,151,0) 75%,rgba(201,201,201,0.65) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6c9c9c9',GradientType=0 );
+	font-size: $heading2Size;
+	text-transform: uppercase;
+}
+
+.reveal > .slides > section:first-child > p {
+	padding: 20px 0;
+	margin: 0 20px;
+	background:url('../../images/logo_with_text.png') no-repeat right center;
+	color: $decorationColor;
+}
+
+/* Author style */
+.reveal > .slides > section:first-child > p > small {
+	text-align: left;
+	font-size: $mainFontSize;
+}
+
+/* Presentation end page */
+/* Thanks for your attention style */
+.reveal > .slides > section:last-child h2 {
+	background:url('../../images/logo_without_text.png') no-repeat center top;
+	margin: 0;
+	padding-top: 130px;
+	text-transform: uppercase;
+}
+
+/* Question don't hesitate style */
+.reveal > .slides > section:last-child > div.paragraph:first-of-type > p {
+	margin: 0.7em 0;
+	text-align: center;
+	color: $decorationColor;
+}
+
+/* Extra resources */
+.reveal > .slides > section:last-child > div.paragraph:nth-of-type(2) > p {
+	margin: 0;
+}
+
+.reveal > .slides > section:last-child ul p {
+	margin: 0.2em 0;
+}
+
+.reveal .slides {
+	border-top-color: $decorationColor;
+
+  h1, h2, h3, h4, h5, h6 {
+		margin: 0 0 20px 0;
+		color: $mainColor;
+		text-align: center;
+		text-transform: none;
+	}
+}
+
+::selection {
+  color: $backgroundColor;
+  background: $selectionBackgroundColor;
+  text-shadow: none;
+}
+
+@mixin bodyBackground() {
+	background: $backgroundColor;
+	background-image: url("../../images/logo_watermark.png");
+	background-size: 150px 130px;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+
+.reveal .slides > section, .reveal .slides > section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/* Paragraphs with left-aligned text */
+.reveal section p	{
+	text-align: left;
+}
+
+/* Images without borders and transparent background */
+.reveal section img	{
+	border-width:0;
+	background-color:transparent;
+ box-shadow:none;
+}
+
+/* Any element without margins */
+.reveal .no-margin {
+	margin:0 !important;
+}
+
+/* Any element including tables without borders */
+.reveal .no-border, table.no-border td {
+	border-width:0 !important;
+}
+
+/* Lists without bullets */
+.reveal section ul.no-bullet {
+	list-style-type:none;
+}
+
+/* To display text on 2 columns */
+div.multicolumn1 {
+    -moz-column-count: 2;
+    -moz-column-gap: 50%;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 50%;
+    column-count: 3;
+    column-gap: 50%;
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
