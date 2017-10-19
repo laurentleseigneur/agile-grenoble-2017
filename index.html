@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <meta name="author" content="Laurent Leseigneur">
+    <meta name="author" content="Emmanuel Duchastenier">
+
+
     <title>Agile Grenoble 2017</title>
 
     <link rel="stylesheet" href="css/reveal.css">
@@ -14,11 +18,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 </head>
 <body>
@@ -66,7 +70,7 @@
                 ## Oui, mais pour qui?
                 ![Personas](images/4_personas.jpg)
             </section>
-            <section>
+        <section>
                 <div data-markdown>
                 ## Personas
                 ### Richard
@@ -125,10 +129,110 @@
 
 
             <section>
-                <img src="images/doc_PR_flow.png"/>
-            </section>
+            <img src="images/doc_PR_flow.png"/>
+        </section>
 
         </section>
+
+        <section title="Engine tests on all DB vendor">
+            <section>
+                <h2>Lancer les tests d'integration sur différents types de base de données</h2>
+                <div class="fragment">1 contrainte: notre produit doit supporter plusieurs types de base de données</div>
+                <div class="fragment">1 constat: h2 en mode émulation de suffit pas pour être confiant sur les autres DB vendors</div>
+            </section>
+            <section align="center">
+                <h2>Notre produit doit aussi être compatible sur</h2>
+                <img src="images/logo-mysql.png" border="0 px">
+                <img src="images/logo-postgresql.png" border="0 px">
+                <img src="images/logo-oracle.png" width="256px" height="256px">
+            </section>
+            <section align="center">
+                <h2>Avant</h2>
+                <img src="images/old_computer.jpg">
+
+                <aside class="notes" data-markdown>
+                    On dépendait de serveur de base de données qui devait:
+                    * être up
+                    * avoir la bonne conf
+                    * les instances de base de données / schéma devait être créées
+                </aside>
+            </section>
+
+            <section>
+                <div data-markdown>
+                    ## Ce qu'on a mis en place
+                    Utilisation d’images docker déjà tunées pour les bases de données qu'on supporte:
+                    * La **configuration** est déjà dans l'image
+                    * Les **schémas** nécessaires sont déjà dans l'image
+                    * Les **users** de connexion sont déjà dans l'image
+    </div>
+                <aside class="notes" data-markdown>
+                    Config: support des transactions XA, ...
+                </aside>
+            </section>
+            <section data-markdown>
+                A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
+            </section>
+            <section align="center">
+                <h3>ça a rendu nos vies meilleurs</h3>
+                <img src="images/route_bonheur.png"/>
+            </section>
+            <section>
+                <h2>Bénéfices observés</h2>
+                <div class="fragment">Entre 20s & 1mn pour avoir une DB up & running. C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et
+                    l’installer.
+                </div>
+                <div class="fragment">Aucun état initial requis, on recrée le container à chaque fois</div>
+                <div class="fragment">Ça tourne aussi bien localement que sur une CI</div>
+                <div class="fragment">Environnements plus stables</div>
+                <div class="fragment">On n'a pas à maintenir à la main x bases de données</div>
+                <div class="fragment">On n'est plus dépendant d’un devops / IT</div>
+            </section>
+            <section data-markdown>
+                ## Comment?
+                * Activation par profils maven (1 profil pour chaque DB vendor)
+                * Utilisation d'un plugin Maven pour lancer un nouveau conteneur Docker à partir d'une image
+            </section>
+            <section data-markdown>
+                ## mais encore?
+
+                Le plugin Maven permet de choisir un port aléatoire. Plus de conflit de ports.
+
+                ![pigs rushing](images/pig_rush.jpg)
+
+                Docker permet d'attendre la fin réelle du démarrage du conteneur avant de lancer les tests.
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Limitations
+                    Pas d'image docker pour MS SQL Server. Ces tests tournent toujours "à l'ancienne".
+                </div>
+                <aside class="notes" data-markdown>
+                    Transactions distribuées XA pas supportées dans l'image docker SQL Server
+                </aside>
+            </section>
+        </section>
+        <section title="ICI">
+            <section data-markdown>
+                Bla bla bla
+            </section>
+            <section data-markdown>
+                Bli Bli Bli
+            </section>
+            <section data-markdown>
+                Blo blo blo
+            </section>
+            <section data-markdown>
+            </section>
+        </section>
+        <section title="Conclusion">
+            <section data-markdown>
+                ## Références
+
+                Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
+            </section>
+        </section>
+
     </div>
 </div>
 
@@ -136,18 +240,18 @@
 <script src="js/reveal.js"></script>
 
 <script>
-	// More info https://github.com/hakimel/reveal.js#configuration
-	Reveal.initialize({
-		history: true,
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
 
-		// More info https://github.com/hakimel/reveal.js#dependencies
-		dependencies: [
-			{ src: 'plugin/markdown/marked.js' },
-			{ src: 'plugin/markdown/markdown.js' },
-			{ src: 'plugin/notes/notes.js', async: true },
-			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-		]
-	});
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
 </script>
 </body>
 </html>
