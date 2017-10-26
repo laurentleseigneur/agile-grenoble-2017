@@ -14,14 +14,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-
-
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 </head>
 <body>
@@ -35,10 +32,55 @@
             </ul>
         </section>
 
-        <section>
-            <img src="images/doc_PR_flow.png"/>
-        </section>
+        <section title="Bonitasoft documentation website">
+            <section data-markdown>
+                ## Le site public contenant la documentation du produit
+            </section>
+            <section>
+                <div data-markdown>
+                    ## le problème
+                    ### La doc
+                    sur un Drupal personnalisé par l’IT
 
+                    1 seule personne
+
+                    versionning compliqué
+
+                    mise en prod peu fréquente et douloureuse
+
+                    pas de gestion de source
+
+                    acces utilisateur fermé par login
+                </div>
+                <aside class="notes">
+                    section à remettre en forme...
+                </aside>
+            </section>
+            <section>
+                <ul style="list-style: none">
+                    <li><img src="images/sad_icon.png" style="vertical-align: middle"/> On ne se sent pas propriétaire du contenu de la documentation.</li>
+                    <li><img src="images/sad_icon.png" style="vertical-align: middle"/> Aucun report facile d’une modif sur toutes les versions concernées. Aucune vérification d’oubli.</li>
+                    <li><img src="images/sad_icon.png" style="vertical-align: middle"/> Pas de flux de vérification : pas de preview du rendu final avant sa réelle publication</li>
+                </ul>
+            </section>
+            <section data-markdown>
+            </section>
+            <section data-markdown>
+            </section>
+            <section data-markdown>
+            </section>
+            <section data-markdown>
+            </section>
+            <section data-markdown>
+            </section>
+            <section data-markdown>
+            </section>
+
+            <section>
+                <img src="images/doc_PR_flow.png"/>
+            </section>
+
+        </section>
     </div>
 </div>
 
@@ -46,21 +88,18 @@
 <script src="js/reveal.js"></script>
 
 <script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+	// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-
-
-
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		]
+	});
 </script>
 </body>
 </html>
