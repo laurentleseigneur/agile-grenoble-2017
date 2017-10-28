@@ -136,9 +136,9 @@
 
         <section title="Engine tests on all DB vendor">
             <section>
-                <h2>Lancer les tests d'integration sur différents types de base de données</h2>
-                <div class="fragment">1 contrainte: notre produit doit supporter plusieurs types de base de données</div>
-                <div class="fragment">1 constat: h2 en mode émulation de suffit pas pour être confiant sur les autres DB vendors</div>
+                <h2>Lancer les tests d'intégration sur  types de base de données</h2>
+                <div class="fragment">1 contrainte: Bonita supporte Oracle, PostgreSQL, MySQL, SQL Server</div>
+                <div class="fragment">1 constat: h2 en mode émulation est rapide, mais ne valide pas la compatibilité sur les autres DB vendors</div>
             </section>
             <section align="center">
                 <h2>Notre produit doit aussi être compatible sur</h2>
@@ -153,7 +153,7 @@
                 <aside class="notes" data-markdown>
                     On dépendait de serveur de base de données qui devait:
                     * être up
-                    * avoir la bonne conf
+                    * avoir la bonne configuration
                     * les instances de base de données / schéma devait être créées
                 </aside>
             </section>
@@ -161,13 +161,14 @@
             <section>
                 <div data-markdown>
                     ## Ce qu'on a mis en place
-                    Utilisation d’images docker déjà tunées pour les bases de données qu'on supporte:
+                    Utilisation d’images docker déjà tunées pour les bases de donnée supportée:
                     * La **configuration** est déjà dans l'image
                     * Les **schémas** nécessaires sont déjà dans l'image
                     * Les **users** de connexion sont déjà dans l'image
     </div>
                 <aside class="notes" data-markdown>
-                    Config: support des transactions XA, ...
+                    Config: support des transactions XA (Oracle),
+                    max Prepared statement (PostgreSQL)
                 </aside>
             </section>
             <section data-markdown>
@@ -176,9 +177,12 @@
             <section align="center">
                 <h3>ça a rendu nos vies meilleurs</h3>
                 <img src="images/route_bonheur.png"/>
+                <aside>
+                    
+                </aside>
             </section>
             <section>
-                <h2>Bénéfices observés</h2>
+                <h2>Bénéfices observés pour le persona "DAVE"</h2>
                 <div class="fragment">Entre 20s & 1mn pour avoir une DB up & running. C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et
                     l’installer.
                 </div>
@@ -192,6 +196,11 @@
                 ## Comment?
                 * Activation par profils maven (1 profil pour chaque DB vendor)
                 * Utilisation d'un plugin Maven pour lancer un nouveau conteneur Docker à partir d'une image
+                * Idem avec plugin gradle
+                <aside>
+                    TODO : ref plugin gradle
+                    example de code maven/gradle
+                </aside>
             </section>
             <section data-markdown>
                 ## mais encore?
@@ -201,14 +210,16 @@
                 ![pigs rushing](images/pig_rush.jpg)
 
                 Docker permet d'attendre la fin réelle du démarrage du conteneur avant de lancer les tests.
+                <aside>HeathCheck</aside>
             </section>
             <section>
                 <div data-markdown>
                     ## Limitations
-                    Pas d'image docker pour MS SQL Server. Ces tests tournent toujours "à l'ancienne".
+                    Pas d'image docker pour MS SQL Server (compatible avec bonita) . Ces tests tournent toujours "à l'ancienne".
                 </div>
                 <aside class="notes" data-markdown>
                     Transactions distribuées XA pas supportées dans l'image docker SQL Server
+                    contraintes peu compatible avec une intégration continue sur les volumes de stockage
                 </aside>
             </section>
         </section>
