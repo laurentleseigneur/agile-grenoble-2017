@@ -14,14 +14,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-
-
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 </head>
 <body>
@@ -35,10 +32,103 @@
             </ul>
         </section>
 
-        <section>
-            <img src="images/doc_PR_flow.png"/>
-        </section>
+        <section title="Bonitasoft documentation website">
+            <section data-markdown>
+                # Cas d'utilisation
+                ## Le site public contenant la _documentation_ du produit
+            </section>
+            <section>
+                <div data-markdown>
+                    ## le problème
+                    ### La doc
+                    * sur un Drupal personnalisé par l’équipe IT (obscur pour la R&amp;D)
+                    * 1 seule personne met à jour la doc
+                    * Le versionning Drupal est compliqué (1 copie par version)
+                    * La mise en production est peu fréquente et douloureuse
+                    * acces utilisateur fermé par login
+                </div>
+                <aside class="notes">
+                    section à remettre en forme...
+                </aside>
+            </section>
+            <section>
+                <ul style="list-style: none">
+                    <li><img src="images/sad_icon.png" style="vertical-align: middle"/> On ne se sent pas propriétaire du contenu de la documentation.</li>
+                    <li><img src="images/sad_icon.png" style="vertical-align: middle"/> Aucun report facile d’une modification sur toutes les versions supérieures. L'oubli est fréquent.</li>
+                    <li><img src="images/sad_icon.png" style="vertical-align: middle"/> Pas de flux de vérification : pas d'aperçu du rendu final avant sa réelle publication.</li>
+                </ul>
+            </section>
+            <section data-markdown>
+                ![Thinking](images/monkey_thinking.jpeg)
+                ## Nécessité de changer le processus
+            </section>
+            <section data-markdown>
+                ## Oui, mais pour qui?
+                ![Personas](images/4_personas.jpg)
+            </section>
+            <section>
+                <div data-markdown>
+                ## Personas
+                ### Richard
+                L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
+                ### Manu
+                Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
+                ### Jérôme
+                Une personne du support client & un consultant qui font face aux clients perdus dans la doc. Ils sont facilitateurs pour améliorer la qualité du contenu.
+                </div>
+                <aside class="notes">
+                    Jérôme va par exemple ouvrir un bug de doc / proposer un squelette de PR d'amélioration d'un page de doc. (Pull Request non-encore définie pour le moment, on y vient. C'est du teasing!)
+                </aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Janvier 2016, la documentation passe en Open Source.
+                    * indexation possible par les moteurs de recherche: suppression du login obligatoire
+                    * bookmarks possibles
+                    * meilleur moteur de recherche intégré au site
+                </div>
+                <aside class="notes">C'est un Choix d'entreprise</aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Tout le contenu passe sous Contrôle de Version: Github
+                    * permet un flux standard de contribution / revue de contenu
+                    * on écrit la doc en [markdown](https://fr.wikipedia.org/wiki/Markdown). C'est plus facile à écrire que du ~~HTML~~.
+                    * contribution par Pull Request exclusivement. C'est la “norme” de développement chez Bonitasoft.
+                    * la PR peut être revue par Jérôme, c'est notre sceau de qualité.
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Mise en pre-production / production automatisée
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Et on vit ainsi dans un monde idéal?
+                </div>
+                    <div class="fragment" data-markdown>### Les effets secondaires</div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                </div>
+                <aside class="notes">(TODO: SCREENSHOT)</aside>
+            </section>
+            <section>
+                <div data-markdown>
+                </div>
+                <aside class="notes"></aside>
+            </section>
 
+
+            <section>
+                <img src="images/doc_PR_flow.png"/>
+            </section>
+
+        </section>
     </div>
 </div>
 
@@ -46,21 +136,18 @@
 <script src="js/reveal.js"></script>
 
 <script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+	// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-
-
-
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		]
+	});
 </script>
 </body>
 </html>
