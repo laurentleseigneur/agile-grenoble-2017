@@ -70,68 +70,67 @@
                 ## Oui, mais pour qui?
                 ![Personas](images/4_personas.jpg)
             </section>
-        <section>
-                <div data-markdown>
-                ## Personas
-                ### Richard
-                L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
-                ### Manu
-                Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
-                ### Jérôme
-                Une personne du support client & un consultant qui font face aux clients perdus dans la doc. Ils sont facilitateurs pour améliorer la qualité du contenu.
-                </div>
-                <aside class="notes">
-                    Jérôme va par exemple ouvrir un bug de doc / proposer un squelette de PR d'amélioration d'un page de doc. (Pull Request non-encore définie pour le moment, on y vient. C'est du teasing!)
-                </aside>
-            </section>
             <section>
-                <div data-markdown>
-                    ## Janvier 2016, la documentation passe en Open Source.
-                    * indexation possible par les moteurs de recherche: suppression du login obligatoire
-                    * bookmarks possibles
-                    * meilleur moteur de recherche intégré au site
-                </div>
-                <aside class="notes">C'est un Choix d'entreprise</aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ## Tout le contenu passe sous Contrôle de Version: Github
-                    * permet un flux standard de contribution / revue de contenu
-                    * on écrit la doc en [markdown](https://fr.wikipedia.org/wiki/Markdown). C'est plus facile à écrire que du ~~HTML~~.
-                    * contribution par Pull Request exclusivement. C'est la “norme” de développement chez Bonitasoft.
-                    * la PR peut être revue par Jérôme, c'est notre sceau de qualité.
-                </div>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ## Mise en pre-production / production automatisée
-                </div>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ## Et on vit ainsi dans un monde idéal?
-                </div>
-                    <div class="fragment" data-markdown>### Les effets secondaires</div>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>
-                </div>
-                <aside class="notes">(TODO: SCREENSHOT)</aside>
-            </section>
-            <section>
-                <div data-markdown>
-                </div>
-                <aside class="notes"></aside>
-            </section>
+                    <div data-markdown>
+                    ## Personas
+                    ### Richard
+                    L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
+                    ### Manu
+                    Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
+                    ### Jérôme
+                    Une personne du support client & un consultant qui font face aux clients perdus dans la doc. Ils sont facilitateurs pour améliorer la qualité du contenu.
+                    </div>
+                    <aside class="notes">
+                        Jérôme va par exemple ouvrir un bug de doc / proposer un squelette de PR d'amélioration d'un page de doc. (Pull Request non-encore définie pour le moment, on y vient. C'est du teasing!)
+                    </aside>
+                </section>
+                <section>
+                    <div data-markdown>
+                        ## Janvier 2016, la documentation passe en Open Source.
+                        * indexation possible par les moteurs de recherche: suppression du login obligatoire
+                        * bookmarks possibles
+                        * meilleur moteur de recherche intégré au site
+                    </div>
+                    <aside class="notes">C'est un Choix d'entreprise</aside>
+                </section>
+                <section>
+                    <div data-markdown>
+                        ## Tout le contenu passe sous Contrôle de Version: Github
+                        * permet un flux standard de contribution / revue de contenu
+                        * on écrit la doc en [markdown](https://fr.wikipedia.org/wiki/Markdown). C'est plus facile à écrire que du ~~HTML~~.
+                        * contribution par Pull Request exclusivement. C'est la “norme” de développement chez Bonitasoft.
+                        * la PR peut être revue par Jérôme, c'est notre sceau de qualité.
+                    </div>
+                    <aside class="notes"></aside>
+                </section>
+                <section>
+                    <div data-markdown>
+                        ## Mise en pre-production / production automatisée
+                    </div>
+                    <aside class="notes"></aside>
+                </section>
+                <section>
+                    <div data-markdown>
+                        ## Et on vit ainsi dans un monde idéal?
+                    </div>
+                        <div class="fragment" data-markdown>### Les effets secondaires</div>
+                    <aside class="notes"></aside>
+                </section>
+                <section>
+                    <div data-markdown>
+                    </div>
+                    <aside class="notes">(TODO: SCREENSHOT)</aside>
+                </section>
+                <section>
+                    <div data-markdown>
+                    </div>
+                    <aside class="notes"></aside>
+                </section>
 
 
-            <section>
-            <img src="images/doc_PR_flow.png"/>
-        </section>
-
+                <section>
+                <img src="images/doc_PR_flow.png"/>
+            </section>
         </section>
 
         <section title="Engine tests on all DB vendor">
@@ -165,7 +164,7 @@
                     * La **configuration** est déjà dans l'image
                     * Les **schémas** nécessaires sont déjà dans l'image
                     * Les **users** de connexion sont déjà dans l'image
-    </div>
+                </div>
                 <aside class="notes" data-markdown>
                     Config: support des transactions XA (Oracle),
                     max Prepared statement (PostgreSQL)
@@ -202,15 +201,17 @@
                     example de code maven/gradle
                 </aside>
             </section>
-            <section data-markdown>
-                ## mais encore?
+            <section>
+                <div data-markdown>
+                    ## mais encore?
 
-                Le plugin Maven permet de choisir un port aléatoire. Plus de conflit de ports.
+                    Le plugin Maven permet de choisir un port aléatoire. Plus de conflit de ports.
 
-                ![pigs rushing](images/pig_rush.jpg)
+                    ![pigs rushing](images/pig_rush.jpg)
 
-                Docker permet d'attendre la fin réelle du démarrage du conteneur avant de lancer les tests.
-                <aside>HeathCheck</aside>
+                    Docker permet d'attendre la fin réelle du démarrage du conteneur avant de lancer les tests.
+                </div>
+                <aside class="notes" data-markdown>HealthCheck</aside>
             </section>
             <section>
                 <div data-markdown>
