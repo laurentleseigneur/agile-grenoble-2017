@@ -27,8 +27,8 @@
 </head>
 <body>
 <div class="reveal">
-    <div class="slides">
-        <section>
+    <section class="slides">
+        <section title="intro">
             <h1>Bonitasoft</h1>
             <ul>
                 <li>règle N°1 : changer les règles en mode bottom-up</li>
@@ -178,7 +178,7 @@
                 <h3>ça a rendu nos vies meilleurs</h3>
                 <img src="images/route_bonheur.png"/>
                 <aside>
-                    
+
                 </aside>
             </section>
             <section>
@@ -226,16 +226,82 @@
             </section>
         </section>
         <section title="ICI">
-            <section data-markdown>
-                Bla bla bla
+            <section>
+                <div>
+                    <h2>ICI</h2>
+                    <p class="fragment">Nouveau module complémentaire à Bonita
+                    </p>
+                    <div class="fragment">
+                        <p>Requiert:</p>
+                        <ul>
+                            <li>Bonita</li>
+                            <li>une Base de donnée</li>
+                            <li>Elasticsearch</li>
+                            <li>ICI</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <p>on part d'une page blanche
+                    tout est permis.
+                    </p>
+                    <p>interconnexion entre les composants
+                    </p>
+                </aside>
             </section>
-            <section data-markdown>
-                Bli Bli Bli
+            <section>
+                <div data-markdown>
+                    ## Personas
+                    ### Nathalie
+                    Product Owner et Ergonome.
+                    ### Luis
+                    Développeur front end de la UI mobile first.
+                    ### Philippe
+                    Sponsor du projet.
+                </div>
+                <aside class="notes">
+                    Approche User Centric Design
+                </aside>
             </section>
-            <section data-markdown>
-                Blo blo blo
+            <section>
+                <div data-markdown>
+                ## Feuille blanche
+
+                * Maven -> Gradle
+                * Jenkinsfile
+                * Docker compose
+
+                    
+              
+                </div>
+                <aside class="notes">
+                    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
+                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+
+                    ports aléatoires publiés en commentaire de la pull requets sur github
+                </aside>
             </section>
-            <section data-markdown>
+            <section>
+                <div>
+                    <h2>Master vert</h2>
+                    <div class="fragment">
+                        <p>4 conteneurs Docker deployés sur des ports figés (bookmark possible)</p>
+                    </div>
+                    <div class="fragment">
+                        <h2>Pull Request pour tests utilisateur</h2>
+
+                        <div class="fragment">
+                            <p>4 container deployés sur des ports aléatoires</p>
+                            <p>supprimés lorsque la PR est fermée</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
+                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+
+                    ports aléatoires publiés en commentaire de la pull requets sur github
+                </aside>
             </section>
         </section>
         <section title="Conclusion">
@@ -245,8 +311,7 @@
                 Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
             </section>
         </section>
-
-    </div>
+    </section>
 </div>
 
 <script src="lib/js/head.min.js"></script>
