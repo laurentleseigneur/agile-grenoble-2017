@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/bonitasoft.css">
+
+    <!-- for Font icons: -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Theme used for syntax highlighting of code -->
@@ -40,28 +42,38 @@
             ### Qui sommes nous?
             Laurent Leseigneur  
             Emmanuel Duchastenier  
-            @Bonitasoft
+            :: développeurs @ Bonitasoft
         </section>
-        <section title="intro">
+        <!-- <section title="intro">
             <h1>Bonitasoft</h1>
             <ul>
                 <li>règle N°1 : changer les règles en mode bottom-up</li>
                 <li>règle N°2 : ne jamais changer la règle N°1</li>
             </ul>
-        </section>
+        </section> -->
         <section title="glossaire">
-            <h1>Glossaire</h1>
-           <h3>Docker, Jenkins, Github, Pull Request, Markdown FIXME ; ANIMATE</h3>
-            <aside class="notes">
-               sondage bras levés
-            </aside>
+            <section>
+                <h1>Glossaire</h1>
+                <h3 class="fragment current-visible">Docker</h3>
+                <h3 class="fragment current-visible">Jenkins</h3>
+                <h3 class="fragment current-visible">Github</h3>
+                <h3 class="fragment current-visible">Pull Request</h3>
+                <h3 class="fragment current-visible">Markdown</h3>
+                <aside class="notes">
+                   sondage bras levés
+                </aside>
+            </section>
+            <section title="Docker" data-markdown>
+                ## Docker
+                ![docker infrastructure](images/docker_big_picture.png)
+            </section>
         </section>
 
         <section title="Bonitasoft documentation website">
             <section>
-                <h2> Cas d'utilisation</h2>
+                <h2>Cas d'utilisation</h2>
 
-                <p>site public contenant la  <a href="https://documentation.bonitasoft.com">documentation</a> du produit</p>
+                <p>site public contenant la <a href="https://documentation.bonitasoft.com">documentation</a> du produit</p>
                 
                 <p align="center"><img src="images/Rognntudjuu.jpg">      </p>
 
@@ -69,9 +81,9 @@
             <section>
                 <div data-markdown>
                     ## Le problème ? la doc
-                    * basé sur Drupal personnalisé par l’IT (obscur pour la R&amp;D)
+                    * basée sur Drupal personnalisé par l’IT (obscur pour la R&amp;D)
                     * une seule personne met à jour la doc
-                    * versionning compliqué (1 copie par version)
+                    * versioning compliqué (1 copie par version)
                     * mise en production peu fréquente (2x/an), et douloureuse
                     * accès utilisateur fermé par login
                 </div>
@@ -135,13 +147,13 @@
                     <div data-markdown>
                         ## Et on vit ainsi dans un monde idéal?
                     </div>
-                        <div class="fragment" data-markdown>### Les effets secondaires</div>
+                    <div class="fragment" data-markdown>### Les effets secondaires</div>
                     <aside class="notes"></aside>
                 </section>
 
 
-            <!-- MODELE -->
-            <section>
+                <!-- MODELE -->
+                <section>
                     <div data-markdown>
                     </div>
                     <aside class="notes"></aside>
@@ -341,6 +353,16 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+
+                // custom Bonitasoft:
+                // width: "70%",
+                // height: "70%",
+                // margin: 0,
+                // minScale: 1,
+                // maxScale: 1,
+                // // Si on veut que ça autoscroll toutes les 10s. ça affiche en plus un bouton Play/Pause et une spinning Wheel pour montrer le temps qui défile !
+                autoSlide: 10000, 
+                // :custom Bonitasoft
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
