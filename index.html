@@ -105,78 +105,224 @@
                 ![Personas](images/4_personas.jpg)
             </section>
             <section>
-                    <div data-markdown>
-                    ## Personas
-                    ### Richard
-                    L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
-                    ### Manu
-                    Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
-                    ### Jérôme
-                    Une personne du support client & un consultant qui font face aux clients perdus dans la doc. Ils sont facilitateurs pour améliorer la qualité du contenu.
-                    </div>
-                    <aside class="notes">
-                        Jérôme va par exemple ouvrir un bug de doc / proposer un squelette de PR d'amélioration d'un page de doc. (Pull Request non-encore définie pour le moment, on y vient. C'est du teasing!)
-                    </aside>
-                </section>
-                <section>
-                    <div data-markdown>
-                        ## Janvier 2016, la documentation passe en Open Source.
-                        * indexation possible par les moteurs de recherche, suppression du login obligatoire
-                        * bookmarks possibles
-                        * meilleur moteur de recherche intégré au site
-                    </div>
-                    <aside class="notes">C'est un Choix d'entreprise</aside>
-                </section>
-                <section>
-                    <div data-markdown>
-                        ## Tout le contenu passe sous Contrôle de Version: Github
-                        * flux standard de contribution / revue de contenu
-                        * écrit en [markdown](https://fr.wikipedia.org/wiki/Markdown) en remplacement du ~~HTML~~.
-                        * Pull Request (PR) exclusivement: norme de développement chez Bonitasoft.
-                        * la PR peut être revue par Jérôme, c'est notre sceau de qualité.
-                    </div>
-                    <aside class="notes"></aside>
-                </section>
-                <section>
-                    <div data-markdown>
-                        ## Mise en pre-production / production automatisée
-                    </div>
-                    <aside class="notes"></aside>
-                </section>
-                <section>
-                    <div data-markdown>
-                        ## Et on vit ainsi dans un monde idéal?
-                    </div>
-                    <div class="fragment" data-markdown>### Les effets secondaires</div>
-                    <aside class="notes"></aside>
-                </section>
-
-
-                <!-- MODELE -->
-                <section>
-                    <div data-markdown>
-                    </div>
-                    <aside class="notes"></aside>
-                </section>
-
-
-                <section>
-                <img src="images/doc_PR_flow.png"/>
+                <div data-markdown>
+                ## Personas
+                ### Richard
+                L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
+                ### Manu
+                Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
+                ### Jérôme
+                Une personne du support client & un consultant qui font face aux clients perdus dans la doc. Ils sont facilitateurs pour améliorer la qualité du contenu.
+                </div>
+                <aside class="notes">
+                    Jérôme va par exemple ouvrir un bug de doc / proposer un squelette de PR d'amélioration d'un page de doc. (Pull Request non-encore définie pour le moment, on y vient. C'est du teasing!)
+                </aside>
             </section>
+            <section>
+                <div data-markdown>
+                    ## Janvier 2016, la documentation passe en Open Source
+                    * indexation possible par les moteurs de recherche, suppression du login obligatoire
+                    * bookmarks possibles
+                    * meilleur moteur de recherche intégré au site
+                </div>
+                <aside class="notes">C'est un Choix d'entreprise</aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Tout le contenu passe sous Contrôle de Version: Github
+                    * flux standard de contribution / revue de contenu
+                    * écrit en [markdown](https://fr.wikipedia.org/wiki/Markdown) en remplacement du ~~HTML~~.
+                    * Pull Request (PR) exclusivement: norme de développement chez Bonitasoft.
+                    * la PR peut être revue par Jérôme, c'est notre sceau de qualité.
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>## Mise en pre-production / production automatisée</div>
+            </section>
+            <section>
+                <img src="images/doc_PR_flow.png"/>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Et on vit ainsi dans un monde idéal?
+                </div>
+                <div class="fragment" data-markdown>### Les effets secondaires</div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Séparation entre contenu et présentation
+                    Sur une PR: code source, sans rendu final
+                    ![Github Diff](images/github_diff.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ... même si on peut voir le différenciel riche
+                    ![Github Diff](images/github_rich_diff.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### toute PR déclenche une construction
+                    sur l'environnement d'intégration continue
+                    ![Github Diff](images/doc.rd.lan.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    * Le HTML est généré
+                    * le site est publié dans un nouveau container
+                    ![Github Diff](images/Jenkins_build_result.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### Tout le site est alors consultable
+                    ![Github Diff](images/documentation_PR_site.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Github est notifié du résultat du build
+                    ![Github Diff](images/Github_checks.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Une notification est envoyée sur l'outil de messagerie
+                    * chaque fois qu'une PR est créée ou commentée
+                    * chaque fois qu'une PR est fermée (acceptée ou refusée)
+                    * chaque fois que la CI pousse sur la Pre-Prod / Prod
+                    ![Github Diff](images/slack-doc-prod.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Mise en Production
+                    Aujourd'hui, mettre en production une nouvelle version, c'est:
+                    * merger une PR dans la branche 7.6
+                    * attendre 2 minutes
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Bénéfices visibles pour nos Personas
+                    ### RICHARD
+                    * doc à jour, cycle de correction + court
+                    * une version Beta sort avec la doc déjà écrite
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Bénéfices visibles pour nos Personas
+                    ### JÉRÔME / MANU
+                    * cycle de correction et de mise en prod de la doc, très court
+                    * historique des modifications accessible à tous
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Bénéfices visibles pour nos Personas
+                    ### MANU
+                    * même cycle de travail que sur du code produit (Java, JS, Groovy…)
+                    * report d’une version sur l’autre simplifié (`git merge`)
+                </div>
+                <aside class="notes" data-markdown>
+                    * Même si pas de tests automatisés type JUnit
+                    * Plus d'oubli de report
+                </aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Bénéfices visibles pour nos Personas
+                    ### JÉRÔME
+                    * il s’est formé à Git et aux Pull Request Github
+                </div>
+                <aside class="notes"></aside>
+            </section>
+
+            <section title="Sous le capot">
+                <div data-markdown>## Sous le capot</div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### 1 build = 1 site complet
+                    * généré en HTML à partir des page .md
+                    * pour chaque version du produit
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### Déclenchement du build des PR
+                    * Jenkins Organization plugin
+                    * fichier Jenkinsfile commité dans le repository Github
+                </div>
+                <p><i class="fa fa-trophy" aria-hidden="true"></i> Rebuild la PR si nouveaux commits complémentaires</p>
+                <p><i class="fa fa-trophy" aria-hidden="true"></i> Image Docker mise à jour. Feedbacks très courts.</p>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### Publication dans un container Docker
+                    * sur 1 port dédié (numéro de la PR)
+                    * même chaîne de build que la Prod
+                    * le container Docker est supprimée si la PR est fermée
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Performance
+                    * PR mergée: dispo en prod en - de 2 minutes
+                    * le rendu est identique
+                    * plus de 370 PR = 370 mises en prod (- de 2 ans)
+                </div>
+                <aside class="notes">pas de tests automatisé type JUnit, mais même cycle de W que sur du code source</aside>
+            </section>
+
+
+            <!-- MODELE -->
+            <section>
+                <div data-markdown>
+                </div>
+                <aside class="notes"></aside>
+            </section>
+
+
+
+
         </section>
 
         <section title="Engine tests on all DB vendor">
             <section>
-                <h2>Lancer les tests d'intégration sur différents types de base de données</h2>
-                <div class="fragment">1 contrainte: Bonita supporte Oracle, PostgreSQL, MySQL, SQL Server</div>
-                <div class="fragment">1 constat: h2 en mode émulation est rapide, mais ne valide pas la compatibilité sur les autres DB vendors</div>
+                <h2>Lancer ses tests d'intégration sur différents types de base de données</h2>
+                <div class="fragment">Bonita supporte Oracle, PostgreSQL, MySQL, SQL Server</div>
+                <div class="fragment">h2 en mode émulation est rapide, mais ne valide pas la compatibilité sur les autres DB vendors</div>
             </section>
             <section align="center">
-                <h2>Notre produit doit être compatible sur</h2>
-                <img src="images/logo-mysql.png" border="0 px">
-                <img src="images/logo-postgresql.png" border="0 px">
-                <img src="images/logo-oracle.png" width="256px" height="256px">
-                <img src="images/logo-sqlserver.png" width="256px">
+                <h2>Bonita doit tourner sur</h2>
+                <div>
+                    <img src="images/logo-mysql.png">
+                    <img src="images/logo-postgresql.png">
+                </div>
+                <div><img src="images/logo-oracle.png" width="230px" height="230px">
+                    <img src="images/logo-sqlserver.png" width="256px">
+                </div>
             </section>
             <section align="center">
                 <h2>Avant</h2>
@@ -336,12 +482,19 @@
                 </aside>
             </section>
         </section>
-        <section title="Conclusion">
-            <section data-markdown>
-                ## Références
+        <section title="Références" data-markdown>
+            ## Références
 
-                Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
-            </section>
+            Site documentaire Bonitasoft: documentation.bonitasoft.com  
+            Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)  
+            Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)  
+            Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)  
+
+            Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
+        </section>
+        <section title="Merci">
+            <h2>Merci pour votre attention</h2>
+            <p align="center"><img src="images/merci.gif"></p>
         </section>
     </section>
 </div>
@@ -361,7 +514,7 @@
                 // minScale: 1,
                 // maxScale: 1,
                 // // Si on veut que ça autoscroll toutes les 10s. ça affiche en plus un bouton Play/Pause et une spinning Wheel pour montrer le temps qui défile !
-                autoSlide: 10000, 
+                // autoSlide: 10000, 
                 // :custom Bonitasoft
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
