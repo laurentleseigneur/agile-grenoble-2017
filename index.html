@@ -407,50 +407,44 @@
             <section>
                 <div>
                     <h2>ICI</h2>
-                    <p class="fragment">Nouveau module complémentaire à Bonita
-                    </p>
+                    <p>Module d'Intelligence Artificielle basé sur le Process Mining.</p>
                     <div class="fragment">
                         <p>Requiert:</p>
                         <ul>
-                            <li>Bonita</li>
-                            <li>une Base de donnée</li>
+                            <li>Bonita et son SGDB</li>
                             <li>Elasticsearch</li>
-                            <li>ICI</li>
+                            <li>add-on ICI</li>
                         </ul>
+                        <p>Version "labs": 7 Déc 2017</p>
                     </div>
                 </div>
-                <aside class="notes">
-                    <p>on part d'une page blanche
-                    tout est permis.
-                    </p>
-                    <p>interconnexion entre les composants
-                    </p>
-                </aside>
+
             </section>
             <section>
-                <div data-markdown>
-                    ## Personas
-                    ### Nathalie
-                    Product Owner et Ergonome.
-                    ### Luis
-                    Développeur front end de la UI mobile first.
-                    ### Philippe
-                    Sponsor du projet.
+                <div>
+                    <h2>Personas </h2>
+                    <h3>Nathalie</h3>
+                    <p>Product Owner et Ergonome</p>
+                    <h3>Luis</h3>
+                    <p>Développeur front end de la UI mobile first</p>
+                    <h3>Philippe</h3>
+                    <td>Sponsor du projet, Product manager</td>
                 </div>
                 <aside class="notes">
                     Approche User Centric Design
                 </aside>
             </section>
             <section>
-                <div data-markdown>
-                ## Feuille blanche
+                <div>
+                    <h2>Nouveau module,<br/> page blanche sur l'infra</h2>
 
-                * Maven -> Gradle
-                * Jenkinsfile
-                * Docker compose
+                    <p class="fragment">Maven <i class=" fa fa-arrow-right"></i> Gradle & Gradle Wrapper</p>
+                    <p class="fragment">YMCI <i class=" fa fa-arrow-right"></i> Jenkinsfile, Docker only
+                    </p>
+                    <p class="fragment">Déploiement <i class=" fa fa-arrow-right"></i> Docker compose</p>
 
-                    
-              
+                    <p class="fragment">Build tool, CI, Deploy dans le même repository GIT</p>
+
                 </div>
                 <aside class="notes">
                     leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
@@ -463,40 +457,74 @@
                 <div>
                     <h2>Master vert</h2>
                     <div class="fragment">
-                        <p>4 conteneurs Docker deployés sur des ports figés (bookmark possible)</p>
+                        <p>4 conteneurs Docker deployés sur des ports figés </p>
+                        <ul>
+                            <li>produit releasable</li>
+                            <li>base de donnée pre remplie</li>
+                        </ul>
                     </div>
-                    <div class="fragment">
-                        <h2>Pull Request pour tests utilisateur</h2>
-
-                        <div class="fragment">
-                            <p>4 container deployés sur des ports aléatoires</p>
-                            <p>supprimés lorsque la PR est fermée</p>
-                        </div>
+                    <div data-markdown class="fragment" >
+                        ```
+                        if (isMaster) {
+                        stage('🚀 Deploy') {
+                            def deployGroovy = load "infrastructure/deploy.groovy"
+                            deployGroovy.deploy([
+                                bonita: 18080,
+                                ici: 18082,
+                                elastic: 19200,
+                                database: 15432,
+                                kibana: 15601
+                                ],
+                                currentBranch)
+                        }
+                        }
+                        ```
                     </div>
                 </div>
-                <aside class="notes">
-                    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
-                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
-
-                    ports aléatoires publiés en commentaire de la pull requets sur github
-                </aside>
             </section>
-        </section>
-        <section title="Références" data-markdown>
-            ## Références
+            <section>
+                <div>
+                    <h2>Pull Request</h2>
 
-            Site documentaire Bonitasoft: documentation.bonitasoft.com  
-            Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)  
-            Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)  
-            Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)  
+                    <div class="fragment">
+                        <p>4 container deployés sur des ports aléatoires</p>
+                        <ul>
+                            <li>UCDD</li>
+                            <li>notification dans github</li>
+                            <li>supprimés lorsque la PR est fermée</li>
 
-            Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
-        </section>
-        <section title="Merci">
-            <h2>Merci pour votre attention</h2>
-            <p align="center"><img src="images/merci.gif"></p>
-        </section>
+                        </ul>
+                    </div>
+                    <div class="fragment">
+                        <p align="center">
+                            <img src="images/buildPR.png">
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Bénéfices observés pour les personas</h2>
+                <p>Démo&nbsp;<i class=" fa fa-arrow-right"></i>&nbsp;les User Stories terminées</p>
+                <p>Tests utilisateur&nbsp;<i class=" fa fa-arrow-right"></i>&nbsp;User Story en cours (PR)</p>
+            </section>
+
+</div>
+<aside class="notes">
+    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
+    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+
+    ports aléatoires publiés en commentaire de la pull requets sur github
+</aside>
+</section>
+</section>
+<section title="Conclusion">
+    <section data-markdown>
+        ## Références
+
+        Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
     </section>
+</section>
+</section>
 </div>
 
 <script src="lib/js/head.min.js"></script>
@@ -514,7 +542,7 @@
                 // minScale: 1,
                 // maxScale: 1,
                 // // Si on veut que ça autoscroll toutes les 10s. ça affiche en plus un bouton Play/Pause et une spinning Wheel pour montrer le temps qui défile !
-                // autoSlide: 10000, 
+                // autoSlide: 10000,
                 // :custom Bonitasoft
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
