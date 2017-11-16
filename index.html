@@ -138,7 +138,7 @@
                 <aside class="notes"></aside>
             </section>
             <section>
-                <div data-markdown>## Mise en pre-production / production automatisée</div>
+                <div data-markdown>## Mise en pré-production / production automatisée</div>
             </section>
             <section>
                 <img src="images/doc_PR_flow.png"/>
@@ -219,8 +219,8 @@
                 <div data-markdown>
                     ## Bénéfices visibles pour nos Personas
                     ### RICHARD
-                    * doc à jour, cycle de correction + court
-                    * une version Beta sort avec la doc déjà écrite
+                    * doc à jour, cycle de correction plus court
+                    * une version Bêta sort avec la doc déjà écrite
                 </div>
                 <aside class="notes"></aside>
             </section>
@@ -228,7 +228,7 @@
                 <div data-markdown>
                     ## Bénéfices visibles pour nos Personas
                     ### JÉRÔME / MANU
-                    * cycle de correction et de mise en prod de la doc, très court
+                    * cycle très court de correction et de mise en prod de la doc
                     * historique des modifications accessible à tous
                 </div>
                 <aside class="notes"></aside>
@@ -281,31 +281,19 @@
                     ### Publication dans un container Docker
                     * sur 1 port dédié (numéro de la PR)
                     * même chaîne de build que la Prod
-                    * le container Docker est supprimée si la PR est fermée
+                    * le container Docker est supprimé si la PR est fermée
                 </div>
                 <aside class="notes"></aside>
             </section>
             <section>
                 <div data-markdown>
                     ## Performance
-                    * PR mergée: dispo en prod en - de 2 minutes
-                    * le rendu est identique
-                    * plus de 370 PR = 370 mises en prod (- de 2 ans)
+                    * PR mergée: dispo en prod en moins de 2 minutes
+                    * rendu est identique
+                    * plus de 370 PR = 370 mises en prod (depuis Janvier 2016)
                 </div>
                 <aside class="notes">pas de tests automatisé type JUnit, mais même cycle de W que sur du code source</aside>
             </section>
-
-
-            <!-- MODELE -->
-            <section>
-                <div data-markdown>
-                </div>
-                <aside class="notes"></aside>
-            </section>
-
-
-
-
         </section>
 
         <section title="Engine tests on all DB vendor">
@@ -338,8 +326,8 @@
 
             <section>
                 <div data-markdown>
-                    ## Ce qu'on a mis en place
-                    Utilisation d’images docker déjà tunées pour les bases de donnée supportée:
+                    ## Ce que nous avons mis en place
+                    Utilisation d’images docker déjà tunées pour les bases de données supportées:
                     * La **configuration** est déjà dans l'image
                     * Les **schémas** nécessaires sont déjà dans l'image
                     * Les **users** de connexion sont déjà dans l'image
@@ -353,7 +341,7 @@
                 A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
             </section>
             <section align="center">
-                <h3>ça a rendu nos vies meilleurs</h3>
+                <h3>cela a rendu nos vies meilleures</h3>
                 <img src="images/route_bonheur.png"/>
                 <aside>
 
@@ -370,12 +358,18 @@
                 <div class="fragment">On n'a pas à maintenir à la main x bases de données</div>
                 <div class="fragment">On n'est plus dépendant d’un devops / IT</div>
             </section>
-            <section data-markdown>
-                ## Comment?
-                * Activation par profils maven (1 profil pour chaque DB vendor)
-                * Utilisation d'un plugin Maven pour lancer un nouveau conteneur Docker à partir d'une image
-                * Idem avec plugin gradle
-                <aside>
+            <section >
+                <div>
+                    <h2>Comment?</h2>
+
+                    <p>Activation par profils maven (1 profil pour chaque DB vendor)</p>
+
+                    <p>Utilisation d'un plugin Maven pour lancer un nouveau conteneur Docker à partir d'une image</p>
+
+                    <p>Idem avec plugin gradle</p>
+
+                </div>
+                <aside class="notes">
                     TODO : ref plugin gradle
                     example de code maven/gradle
                 </aside>
@@ -384,7 +378,7 @@
                 <div data-markdown>
                     ## mais encore?
 
-                    Le plugin Maven permet de choisir un port aléatoire. Plus de conflit de ports.
+                    Le plugin Maven permet de choisir un port aléatoire. Plus de conflits de ports.
 
                     ![pigs rushing](images/pig_rush.jpg)
 
@@ -460,7 +454,7 @@
                         <p>4 conteneurs Docker deployés sur des ports figés </p>
                         <ul>
                             <li>produit releasable</li>
-                            <li>base de donnée pre remplie</li>
+                            <li>base de données pré remplie</li>
                         </ul>
                     </div>
                     <div data-markdown class="fragment" >
