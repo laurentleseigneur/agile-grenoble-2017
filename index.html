@@ -11,7 +11,7 @@
     <title>Agile Grenoble 2017</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/bonitasoft.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
 
     <!-- for Font icons: -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
             ### Qui sommes nous?
             Laurent Leseigneur  
             Emmanuel Duchastenier  
-            :: développeurs @ Bonitasoft
+             -- développeurs @ Bonitasoft --
         </section>
         <!-- <section title="intro">
             <h1>Bonitasoft</h1>
@@ -71,7 +71,7 @@
 
         <section title="Bonitasoft documentation website">
             <section>
-                <h2>Cas d'utilisation</h2>
+                <h2>Cas d'utilisation n°1</h2>
 
                 <p>site public contenant la <a href="https://documentation.bonitasoft.com">documentation</a> du produit</p>
                 
@@ -310,7 +310,8 @@
 
         <section title="Engine tests on all DB vendor">
             <section>
-                <h2>Lancer ses tests d'intégration sur différents types de base de données</h2>
+                <h2>Cas d'utilisation n°2</h2>
+                <h3>Lancer ses tests d'intégration sur différents types de base de données</h3>
                 <div class="fragment">Bonita supporte Oracle, PostgreSQL, MySQL, SQL Server</div>
                 <div class="fragment">h2 en mode émulation est rapide, mais ne valide pas la compatibilité sur les autres DB vendors</div>
             </section>
@@ -406,7 +407,8 @@
         <section title="ICI">
             <section>
                 <div>
-                    <h2>ICI</h2>
+                    <h2>Cas d'utilisation n°3</h2>
+                    <h3>ICI</h3>
                     <p>Module d'Intelligence Artificielle basé sur le Process Mining.</p>
                     <div class="fragment">
                         <p>Requiert:</p>
@@ -463,7 +465,7 @@
                             <li>base de donnée pre remplie</li>
                         </ul>
                     </div>
-                    <div data-markdown class="fragment" >
+                    <div data-markdown class="fragment">
                         ```
                         if (isMaster) {
                         stage('🚀 Deploy') {
@@ -476,7 +478,7 @@
                                 kibana: 15601
                                 ],
                                 currentBranch)
-                        }
+                            }
                         }
                         ```
                     </div>
@@ -512,22 +514,36 @@
                 <h2>Bénéfices observés pour les personas</h2>
                 <p>Démo&nbsp;<i class=" fa fa-arrow-right"></i>&nbsp;les User Stories terminées</p>
                 <p>Tests utilisateur&nbsp;<i class=" fa fa-arrow-right"></i>&nbsp;User Story en cours (PR)</p>
+
+                <aside class="notes">
+                    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
+                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+
+                    ports aléatoires publiés en commentaire de la pull requets sur github
+                </aside>
+
             </section>
         </section>
         <section title="Références" data-markdown>
             ## Références
-
-            Site documentaire Bonitasoft: documentation.bonitasoft.com
-            Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
-            Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
-            Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)
-
+            
+            Site documentaire Bonitasoft: documentation.bonitasoft.com  
+            Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)  
+            Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)  
+            Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)  
             Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
         </section>
         <section title="Merci">
             <h2>Merci pour votre attention</h2>
             <p align="center"><img src="images/merci.gif"></p>
         </section>
+        <section title="Q&A" data-markdown>
+            ### Questions?
+            ### Remarques?
+            ![questions?](images/questions.jpg)
+        </section>
+
+    </section>
 </div>
 
 <script src="lib/js/head.min.js"></script>
