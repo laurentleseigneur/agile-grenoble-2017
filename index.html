@@ -76,7 +76,7 @@
             <section>
                 <h2>Cas d'utilisation n°1</h2>
 
-                <p>site public contenant la <a href="https://documentation.bonitasoft.com">documentation</a> du produit</p>
+                <h3>site public contenant la <a href="https://documentation.bonitasoft.com">documentation</a> du produit</h3>
                 
                 <p align="center"><img src="images/Rognntudjuu.jpg">      </p>
 
@@ -301,17 +301,19 @@
             <section>
                 <h2>Cas d'utilisation n°2</h2>
                 <h3>Lancer ses tests d'intégration sur différents types de base de données</h3>
-                <div class="fragment">Bonita supporte Oracle, PostgreSQL, MySQL, SQL Server</div>
-                <div class="fragment">h2 en mode émulation est rapide, mais ne valide pas la compatibilité sur les autres DB vendors</div>
             </section>
             <section align="center">
-                <h2>Bonita doit tourner sur</h2>
+                <h3>Bonita doit tourner sur</h3>
                 <div>
-                    <img src="images/logo-mysql.png">
-                    <img src="images/logo-postgresql.png">
+                    <img src="images/logo-mysql.png" height="200px">
+                    <img src="images/logo-postgresql.svg" height="200px" width="200px">
                 </div>
-                <div><img src="images/logo-oracle.png" width="230px" height="230px">
-                    <img src="images/logo-sqlserver.png" width="256px">
+                <div>
+                    <img src="images/logo-oracle.png" width="200px" height="200px">
+                    <img src="images/logo-sqlserver.png" width="256px" height="200px">
+                </div>
+                <div class="fragment">H2 en mode émulation est rapide, mais ne valide pas la compatibilité sur les
+                    autres DB vendors.
                 </div>
             </section>
             <section align="center">
@@ -319,79 +321,178 @@
                 <img src="images/old_computer.jpg">
 
                 <aside class="notes" data-markdown>
-                    On dépendait de serveur de base de données qui devait:
-                    * être up
+                    On dépendait de serveurs de base de données qui devaient:
+                    * être démarrés et en bonne santé
                     * avoir la bonne configuration
-                    * les instances de base de données / schéma devait être créées
+                    * les instances de base de données / schémas devaient être créées avant lancement des tests
                 </aside>
             </section>
 
+            <section data-markdown>
+                ## Ce qu'on a mis en place
+                Utilisation d’images docker déjà tunées pour les bases de données supportées.
+            </section>
             <section>
                 <div data-markdown>
-                    ## Ce que nous avons mis en place
-                    Utilisation d’images docker déjà tunées pour les bases de données supportées:
-                    * La **configuration** est déjà dans l'image
-                    * Les **schémas** nécessaires sont déjà dans l'image
-                    * Les **users** de connexion sont déjà dans l'image
+                    ## Ce qu'on a mis en place
+                    La **configuration** est déjà dans l'image
+                </div>
+<div data-markdown class="fragment">
+```bash
+#!/bin/bash
+
+#max_prepared_transactions
+sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions = 100/"
+"$PGDATA"/postgresql.conf
+```
+
                 </div>
                 <aside class="notes" data-markdown>
                     Config: support des transactions XA (Oracle),
                     max Prepared statement (PostgreSQL)
                 </aside>
             </section>
-            <section data-markdown>
-                A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
-            </section>
-            <section align="center">
-                <h3>cela a rendu nos vies meilleures</h3>
-                <img src="images/bisounours.png"/>
-                <aside>
+            <section>
+                <div data-markdown>
+                ## Ce qu'on a mis en place
+                Les **schémas / databases** nécessaires sont déjà dans l'image
+                Les **users** de connexion sont déjà dans l'image
+                </div>
+                <div data-markdown class="fragment">
 
+```sql
+CREATE ROLE bonita LOGIN PASSWORD 'bpm';
+
+CREATE DATABASE bonita
+WITH OWNER = bonita
+ENCODING = 'UTF8'
+TABLESPACE = pg_default
+CONNECTION LIMIT = -1;
+```
+                </div>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Ce qu'on a mis en place
+                    Possibilité de précharger des données à partir d'un dump
+
+                </div>
+                <div data-markdown class="fragment">
+
+```
+#!/bin/bash
+if [ -f /opt/bonita/dump/bonita.dump ]; then
+psql -h localhost -p 5432 -Ubonita bonita < /opt/bonita/dump/bonita.dump
+date > /var/lib/postgresql/restore.lastExecution
+echo "Database restored"
+fi
+```
+                </div>
+                <aside class="notes" data-markdown>
+                    Si le fichier est présent au bon endroit
                 </aside>
             </section>
             <section>
-                <h2>Bénéfices observés pour le persona "DAVE"</h2>
-                <div class="fragment">Entre 20s & 1mn pour avoir une DB up & running. C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et
-                    l’installer.
+                <div data-markdown>A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
                 </div>
-                <div class="fragment">Aucun état initial requis, on recrée le container à chaque fois</div>
-                <div class="fragment">Ça tourne aussi bien localement que sur une CI</div>
-                <div class="fragment">Environnements plus stables</div>
-                <div class="fragment">On n'a pas à maintenir à la main x bases de données</div>
-                <div class="fragment">On n'est plus dépendant d’un devops / IT</div>
+
+                <pre class="fragment"><code class="xml">
+<plugin>
+    <groupId>io.fabric8</groupId>
+    <artifactId>docker-maven-plugin</artifactId>
+    <version>0.18.1</version>
+</plugin>
+</code></pre>
             </section>
-            <section >
-                <div>
-                    <h2>Comment?</h2>
+            <section>
+                <div data-markdown>A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker</div>
 
-                    <p>Activation par profils maven (1 profil pour chaque DB vendor)</p>
-
-                    <p>Utilisation d'un plugin Maven pour lancer un nouveau conteneur Docker à partir d'une image</p>
-
-                    <p>Idem avec plugin gradle</p>
-
+<pre class="fragment"><code class="xml">
+<configuration>
+  <images>
+    &lt;image>
+      <name>${docker-mysql-image}</name>
+      <run>
+        <env>
+          <MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD>
+        </env>
+        <ports>
+          <port>db.random.port:3306</port>
+        </ports>
+      </run>
+    &lt;/image>
+  </images>
+</configuration>
+</code></pre>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Comment?
+                    * Activation par profils maven (1 profil pour chaque DB vendor)
+                    * Idem avec plugin gradle
                 </div>
-                <aside class="notes">
-                    TODO : ref plugin gradle
-                    example de code maven/gradle
+                <aside class="notes" data-markdown>
+                    multi base grace aux profils
                 </aside>
             </section>
             <section>
                 <div data-markdown>
-                    ## mais encore?
+                    ## Tips: scalabilité
 
-                    Le plugin Maven permet de choisir un port aléatoire. Plus de conflits de ports.
+                    Le plugin Maven permet de choisir un port aléatoire. Plus de conflit de ports.
 
                     ![pigs rushing](images/pig_rush.jpg)
-
-                    Docker permet d'attendre la fin réelle du démarrage du conteneur avant de lancer les tests.
                 </div>
-                <aside class="notes" data-markdown>HealthCheck</aside>
+                <aside class="notes" data-markdown>
+                    
+                </aside>
             </section>
             <section>
                 <div data-markdown>
-                    ## Limitations
-                    Pas d'image docker pour MS SQL Server (compatible avec bonita) . Ces tests tournent toujours "à l'ancienne".
+                    ## Tips: Healthcheck
+
+                    Docker permet de s'assurer que l'image est up & running avant de lancer les tests
+
+                </div>
+                <div data-markdown class="fragment">
+
+```
+FROM postgres:9.3
+MAINTAINER Laurent Leseigneur <laurent.leseigneur@bonitasoft.com>
+
+# restore dump on startup if dumpfile is present
+VOLUME /opt/bonita/dump
+
+COPY 0_init-databases.sql /docker-entrypoint-initdb.d/0_init-databases.sql
+COPY 1_set-max_prepared_transactions.sh
+/docker-entrypoint-initdb.d/1_set-max_prepared_transactions.sh
+COPY 2_restore_dump.sh /docker-entrypoint-initdb.d/2_restore_dump.sh
+COPY healthcheck.sh /usr/local/bin/healthcheck.sh
+
+HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
+```
+                </div>
+                <aside class="notes" data-markdown>
+                    * docker fonctionne en couches, image officielle postgres + sur-couche de conf spécifique Bonita
+                    * HealthCheck
+            * temps de démarrage oracle 
+                </aside>
+            </section>
+            <section>
+                    <h1>Bénéfices</h1>
+                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> env. clean avant chaque lancement, plus stable</div>
+                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Entre 20s & 1mn pour avoir une DB up & running</div>
+                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> lancement en local pour debugguer</div>
+                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> La R&D est complètement autonome</div>
+                <aside class="notes" data-markdown>
+                C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et l’installer.
+                </aside>
+            </section>
+            <section>
+                <div>
+                    <h1>Limitations</h1>
+                    <i class="fa fa-meh-o" aria-hidden="true"></i> Pas d'image docker pour MS SQL Server (compatible avec bonita).
+                    Ces tests tournent toujours "à l'ancienne".
                 </div>
                 <aside class="notes" data-markdown>
                     Transactions distribuées XA pas supportées dans l'image docker SQL Server
@@ -399,6 +500,7 @@
                 </aside>
             </section>
         </section>
+
         <section title="ICI">
             <section>
                 <div>
@@ -560,7 +662,7 @@
         <section title="Références" data-markdown>
             ## Références
             
-            Site documentaire Bonitasoft: documentation.bonitasoft.com  
+            Site de la doc Bonita: http://documentation.bonitasoft.com  
             Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)  
             Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)  
             Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)  
