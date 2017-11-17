@@ -38,11 +38,14 @@
         <section title="titre" data-markdown>
             # Obtenir des feedbacks de tous vos personas plus rapidement en s’appuyant sur Docker
         </section>
-        <section title="presentation speakers" data-markdown>
-            ### Qui sommes nous?
-            Laurent Leseigneur  
-            Emmanuel Duchastenier  
-             -- développeurs @ Bonitasoft --
+        <section title="presentation speakers">
+            <h2>Qui sommes nous?</h2>
+            <p>Laurent Leseigneur   </p>
+            <p>Emmanuel Duchastenier</p>
+
+            <p>R&amp;D<br/>
+            <img src="images/logo_with_text.png" width="40%"/>
+            </p>
         </section>
         <!-- <section title="intro">
             <h1>Bonitasoft</h1>
@@ -433,7 +436,7 @@
                     <h2>Nouveau module,<br/> page blanche sur l'infra</h2>
 
                     <p class="fragment">Maven <i class=" fa fa-arrow-right"></i> Gradle & Gradle Wrapper</p>
-                    <p class="fragment">YMCI <i class=" fa fa-arrow-right"></i> Jenkinsfile, Docker only
+                    <p class="fragment">Intégration Continue <i class=" fa fa-arrow-right"></i> Jenkinsfile, Docker only
                     </p>
                     <p class="fragment">Déploiement <i class=" fa fa-arrow-right"></i> Docker compose</p>
 
@@ -447,11 +450,47 @@
                     ports aléatoires publiés en commentaire de la pull requets sur github
                 </aside>
             </section>
+
+            <section>
+                <div data-markdown>
+                    ## Docker compose
+
+                    * plusieurs conteneurs reliés entre eux
+                    * sous-réseau partagé
+                    * partage de répertoires (volumes)
+                    * ordre de démarrage selon les dépendances
+
+                    ```
+                    services:
+                        tahitiBackup:
+                            container_name: ici-tahitiBackup-${BRANCH_NAME}
+                            image: registry.rd.lan/bonitasoft/tahiti-postgres:7.5.1
+                        bonitaDB:
+                            container_name: ici-db-${BRANCH_NAME}
+                            image: registry.rd.lan/bonitasoft/postgres-9.3
+                            ports:
+                                - ${PORT_DB}:5432
+                            depends_on:
+                                - tahitiBackup
+                            volumes_from:
+                                - tahitiBackup
+                            expose:
+                                - 5432
+                    ```
+
+                </div>
+                <aside class="notes">
+                    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
+                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+
+                    ports aléatoires publiés en commentaire de la pull requets sur github
+                </aside>
+            </section>
             <section>
                 <div>
                     <h2>Master vert</h2>
                     <div class="fragment">
-                        <p>4 conteneurs Docker deployés sur des ports figés </p>
+                        <p>Les conteneurs Docker sont déployés sur des ports figés </p>
                         <ul>
                             <li>produit releasable</li>
                             <li>base de données pré remplie</li>
@@ -481,9 +520,9 @@
                     <h2>Pull Request</h2>
 
                     <div class="fragment">
-                        <p>4 container deployés sur des ports aléatoires</p>
+                        <p>Les conteneurs Docker sont déployés sur des ports aléatoires</p>
                         <ul>
-                            <li>UCDD</li>
+                            <li>tests utilisateur</li>
                             <li>notification dans github</li>
                             <li>supprimés lorsque la PR est fermée</li>
 
