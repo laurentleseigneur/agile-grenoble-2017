@@ -109,12 +109,30 @@
             </section>
             <section>
                 <h2>Personas</h2>
-                <h3><img src="images/richard.png" width="100" height="100" style="vertical-align: middle;"> Richard</h3>
-                L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
-                <h3><img src="images/manu.svg" width="100" height="100" style="vertical-align: middle;"> Manu</h3>
-                Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
-                <h3><img src="images/marielle.svg" width="100" height="100" style="vertical-align: middle;"> Marielle</h3>
-                Une personne du support client & un consultant qui font face aux clients perdus dans la doc. Ils sont facilitateurs pour améliorer la qualité du contenu.
+                <table>
+                  <tr>
+                      <td style="padding:0em;border:0px">
+                          <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Richard</h3>
+                          L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
+                        </td>
+                      <td width="120px" style="vertical-align:top;border:0px"><img src="images/richard.png"></td>
+                  </tr>
+             
+                    <tr>
+                        <td style="padding:0em;border:0px">
+                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">MANU</h3>Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
+                        </td>
+                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/manu.svg" ></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0em;border:0px">
+                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Marielle</h3>
+                            Une personne du support client & un consultant qui font face aux clients perdus dans la doc.
+                            Ils sont facilitateurs pour améliorer la qualité du contenu.
+                        </td>
+                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/marielle.svg" ></td>
+                    </tr>
+                </table>
                 <aside class="notes">
                     Marielle va par exemple ouvrir un bug de doc / proposer un squelette de PR d'amélioration d'un page de doc. (Pull Request non-encore définie pour le moment, on y vient. C'est du teasing!)
                 </aside>
@@ -217,29 +235,62 @@
                 <aside class="notes"></aside>
             </section>
             <section>
-                <div data-markdown>
-                    ## Bénéfices visibles pour nos Personas
-                    ### RICHARD
-                    * doc à jour, cycle de correction plus court
-                    * une version Bêta sort avec la doc déjà écrite
+                <div>
+                    <h2>Bénéfices visibles pour nos Personas</h2>
+                    <h3>Richard</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-trophy" aria-hidden="true"></i>
+                                    doc à jour, cycle de correction plus court</p>
+                                <p><i class="fa fa-trophy" aria-hidden="true"></i>
+                                    une version Bêta sort avec la doc déjà écrite</p>
+                            </td>
+                            <td width="120px" style="vertical-align:top;border:0px"><img src="images/richard.png"></td>
+                        </tr>
+                    </table>
+
                 </div>
                 <aside class="notes"></aside>
             </section>
             <section>
-                <div data-markdown>
-                    ## Bénéfices visibles pour nos Personas
-                    ### Marielle / MANU
-                    * cycle très court de correction et de mise en prod de la doc
-                    * historique des modifications accessible à tous
+                <div>
+                    <h2>Bénéfices visibles pour nos Personas</h2>
+                    <h3>Marielle / Manu</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-trophy" aria-hidden="true"></i>
+                                    cycle très court de correction et de mise en prod de la doc</p>
+                                <p><i class="fa fa-trophy" aria-hidden="true"></i>
+                                    historique des modifications accessible à tous</p>
+                            </td>
+                            <td width="120px" style="vertical-align:top;border:0px"><img src="images/marielle.svg">
+                                <img src="images/manu.svg"></td>
+                        </tr>
+                    </table>
+
                 </div>
                 <aside class="notes"></aside>
             </section>
             <section>
-                <div data-markdown>
-                    ## Bénéfices visibles pour nos Personas
-                    ### MANU
-                    * même cycle de travail que sur du code produit (Java, JS, Groovy…)
-                    * report d’une version sur l’autre simplifié (`git merge`)
+                <div>
+                    <h2>Bénéfices visibles pour nos Personas</h2>
+                    <h3>Manu</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    même cycle de travail que sur du code produit: Java, JS, Groovy, etc…</p>
+                                <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    report d’une version sur l’autre simplifié:<code>git merge</code></p>
+                            </td>
+                            <td width="120px" style="vertical-align:top;border:0px">
+                                <img src="images/manu.svg">
+                            </td>
+                        </tr>
+                    </table>
+
                 </div>
                 <aside class="notes" data-markdown>
                     * Même si pas de tests automatisés type JUnit
@@ -247,14 +298,25 @@
                 </aside>
             </section>
             <section>
-                <div data-markdown>
-                    ## Bénéfices visibles pour nos Personas
-                    ### Marielle
-                    * elle s’est formée à Git et aux Pull Request Github
-                </div>
-                <aside class="notes"></aside>
-            </section>
+                <div>
+                    <h2>Bénéfices visibles pour nos Personas</h2>
+                    <h3>Marielle</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    elle s’est formée à Git et aux Pull Request Github</p>
+                            </td>
+                            <td width="120px" style="vertical-align:top;border:0px">
+                                <img src="images/marielle.svg">
+                            </td>
+                        </tr>
+                    </table>
 
+                </div>
+                <aside class="notes" data-markdown>
+                </aside>
+            </section>
             <section title="Sous le capot">
                 <div data-markdown>## Sous le capot</div>
                 <aside class="notes"></aside>
@@ -517,16 +579,33 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                     </div>
                 </div>
             </section>
+
             <section>
-                <div>
-                    <h2>Personas </h2>
-                    <h3><img src="images/nath.svg" width="100" height="100" style="vertical-align: middle;"> Nathalie</h3>
-                    <p>Product Owner et Ergonome</p>
-                    <h3><img src="images/luis.svg" width="100" height="100" style="vertical-align: middle;"> Luis</h3>
-                    <p>Développeur front end de la UI mobile first</p>
-                    <h3><img src="images/philippe.svg" width="100" height="100" style="vertical-align: middle;"> Philippe</h3>
-                    <td>Sponsor du projet, Product manager</td>
-                </div>
+                <h2>Personas</h2>
+                <table>
+                    <tr>
+                        <td style="padding:0em;border:0px">
+                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Nathalie</h3>
+                            Product Owner et ergonome
+                        </td>
+                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/nath.svg"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:0em;border:0px">
+                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Luis</h3>
+                                Développeur front end de la UI mobile first
+                        </td>
+                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/luis.svg" height="120px"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0em;border:0px">
+                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Philippe</h3>
+                            Sponsor du projet, Product manager
+                        </td>
+                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/philippe.svg" ></td>
+                    </tr>
+                </table>
                 <aside class="notes">
                     Approche User Centric Design
                 </aside>
@@ -644,17 +723,41 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                 </aside>
             </section>
             <section>
-                <h2>Bénéfices observés pour les personas</h2>
-                <p>Démo&nbsp;<i class=" fa fa-arrow-right"></i>&nbsp;les User Stories terminées</p>
-                <p>Tests utilisateur&nbsp;<i class=" fa fa-arrow-right"></i>&nbsp;User Story en cours (PR)</p>
+                <div>
+                    <h2>Bénéfices visibles pour nos Personas</h2>
+                    <h3>Nathalie / Luis</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    Tests utilisateur avec la user story incluant un changement d'ergonomie</p>
+                            </td>
+                            <td width="120px" style="vertical-align:top;border:0px"><img src="images/nath.svg">
+                                <img src="images/luis.svg" height="120px"></td>
+                        </tr>
+                    </table>
 
-                <aside class="notes">
-                    leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
-                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div>
+                    <h2>Bénéfices visibles pour nos Personas</h2>
+                    <h3>Philippe</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    la dernière version du produit toujours disponible pour une démo</p>
+                                <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    un environnement avec des données consistantes</p>
+                            </td>
+                            <td width="120px" style="vertical-align:top;border:0px"><img src="images/philippe.svg">
+                        </tr>
+                    </table>
 
-                    ports aléatoires publiés en commentaire de la pull requets sur github
-                </aside>
-
+                </div>
+                <aside class="notes"></aside>
             </section>
         </section>
         <section title="Références" data-markdown>
