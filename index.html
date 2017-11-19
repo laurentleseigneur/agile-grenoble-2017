@@ -596,7 +596,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Luis</h3>
                                 Développeur front end de la UI mobile first
                         </td>
-                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/luis.svg" height="120px"></td>
+                        <td width="120px" style="vertical-align:top;border:0px"><img src="images/luis.png" height="120px"></td>
                     </tr>
                     <tr>
                         <td style="padding:0em;border:0px">
@@ -612,14 +612,16 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
             </section>
             <section>
                 <div>
-                    <h2>Nouveau module,<br/> page blanche sur l'infra</h2>
+                    <h2>Nouveau module,<br/> page blanche sur l'infrastructure</h2>
 
-                    <p class="fragment">Maven <i class=" fa fa-arrow-right"></i> Gradle & Gradle Wrapper</p>
-                    <p class="fragment">Intégration Continue <i class=" fa fa-arrow-right"></i> Jenkinsfile, Docker only
-                    </p>
-                    <p class="fragment">Déploiement <i class=" fa fa-arrow-right"></i> Docker compose</p>
-
-                    <p class="fragment">Build tool, CI, Deploy dans le même repository GIT</p>
+                    <ul>
+                        <li>Maven <i class=" fa fa-arrow-right"></i> Gradle & Gradle Wrapper</li>
+                        <li>Intégration Continue <i class=" fa fa-arrow-right"></i> Jenkinsfile, Organization plugin</li>
+                        <li>Test d'intégration et end-to-end <i class=" fa fa-arrow-right"></i> Docker</li>
+                        <li>Déploiement <i class=" fa fa-arrow-right"></i> Docker compose</li>
+                    </ul>
+                    <p class="fragment"><i class=" fa fa-thumbs-up"></i> l'outil de build, le job à jouer sur l'Intégration
+                        Continue et son déploiement sont dans le même repository GIT que le code source</p>
 
                 </div>
                 <aside class="notes">
@@ -627,9 +629,46 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                     et consommateur de ressources (8PR ouvertes = 32 container Dockers
 
                     ports aléatoires publiés en commentaire de la pull requets sur github
+
+                    single place of truth
+
+                    idem exemlples précedents
                 </aside>
             </section>
+            <section>
+                <div>
+                    <h2>Big Picture</h2>
 
+                   <img src="images/schema_ici.png" width="100%">
+                </div>
+                <aside class="notes">
+               big picture
+
+                </aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Build wrapper ?
+
+                    * la bonne version de l'outil de build incluse dans la conf
+                    * build identique localement et sur l'Intégration Continue
+                    * plus besoin d'installer maven ou gradle
+                </div>
+                <div data-markdown class="fragment">
+                    gradle-wrapper.properties :
+                    ```
+                    distributionBase=GRADLE_USER_HOME
+                    distributionPath=wrapper/dists
+                    zipStoreBase=GRADLE_USER_HOME
+                    zipStorePath=wrapper/dists
+                    distributionUrl=https\://services.gradle.org/distributions/gradle-4.2-bin.zip
+                    ```
+                </div>
+                <aside class="notes">
+                   fichier généré
+
+                </aside>
+            </section>
             <section>
                 <div data-markdown>
                     ## Docker compose
@@ -733,7 +772,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                                     Tests utilisateur avec la user story incluant un changement d'ergonomie</p>
                             </td>
                             <td width="120px" style="vertical-align:top;border:0px"><img src="images/nath.svg">
-                                <img src="images/luis.svg" height="120px"></td>
+                                <img src="images/luis.png" height="120px"></td>
                         </tr>
                     </table>
 
