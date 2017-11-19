@@ -199,7 +199,11 @@
                     * le site est publié dans un nouveau container
                     ![Github Diff](images/Jenkins_build_result.png)
                 </div>
-                <aside class="notes"></aside>
+                <aside class="notes" data-markdown>
+                    Ce job a 2 fonctions:
+                    * générer le contenu en HTML + Javascript ...
+                    * publier le contenu
+                </aside>
             </section>
             <section>
                 <div data-markdown>
@@ -283,7 +287,7 @@
                                 <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                     même cycle de travail que sur du code produit: Java, JS, Groovy, etc…</p>
                                 <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                    report d’une version sur l’autre simplifié:<code>git merge</code></p>
+                                    report d’une version sur l’autre simplifié:<br/><code>git merge</code></p>
                             </td>
                             <td width="120px" style="vertical-align:top;border:0px">
                                 <img src="images/manu.svg">
@@ -506,7 +510,7 @@ fi
                     ![pigs rushing](images/pig_rush.jpg)
                 </div>
                 <aside class="notes" data-markdown>
-                    
+                    Tips = Conseil pratique
                 </aside>
             </section>
             <section>
@@ -578,6 +582,9 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                          </ul>
                     </div>
                 </div>
+                 <aside class="notes" data-markdown>
+                    FIXME: Je propose d'utiliser le mot plugin plutôt que add-on, ça parlera au plus grand nombre
+                </aside>
             </section>
 
             <section>
@@ -816,24 +823,34 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
 
             </section>
 
-            <section title="Références" data-markdown>
-                ## Références
+            <section title="Références">
+                <div data-markdown>
+                    ## Références
 
-                Site de la doc Bonita: http://documentation.bonitasoft.com
-                Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
-                Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
-                Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)
-                Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
+                    Doc Bonita: [documentation.bonitasoft.com](http://documentation.bonitasoft.com), [Github bonita-doc](https://github.com/bonitasoft/bonita-doc)
+                    Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
+                    Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
+                    [Image officielle](https://hub.docker.com/_/bonita/) docker avec des vrais morceaux de Bonita
+                    Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017): [github.com/laurentleseigneur/agile-grenoble-2017](https://laurentleseigneur.github.io/agile-grenoble-2017/)
+                </div>
+                <aside class="notes" data-markdown>
+                    Quelques références vers les briques dont on a parlé
+                </aside>
             </section>
         </section>
         <section title="Merci">
             <h2>Merci pour votre attention</h2>
             <p align="center"><img src="images/merci.gif"></p>
         </section>
-        <section title="Q&A" data-markdown>
+        <section title="Q&A">
+            <div data-markdown>
             ### Questions?
             ### Remarques?
             ![questions?](images/questions.jpg)
+            </div>
+            <aside class="notes" data-markdown>
+                Si vous voulez échanger avec nous, il nous reste x minutes
+            </aside>
         </section>
 
         <section title="Questions">
