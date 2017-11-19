@@ -799,14 +799,32 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                 <aside class="notes"></aside>
             </section>
         </section>
-        <section title="Références" data-markdown>
-            ## Références
-            
-            Site de la doc Bonita: http://documentation.bonitasoft.com  
-            Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)  
-            Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)  
-            Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)  
-            Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
+        <section title="conclusion">
+            <section data-markdown>
+                ## Les choses à améliorer
+
+                * temps de démarage de certaines base de données (O....E)
+                * monitorer l'espace disque consommé par Docker
+            </section>
+            <section data-markdown>
+                ## Leçons apprises
+
+                * tout scripter
+                * idéalement dans le même repository
+                * utiliser la même version de Docker / Jenkins partout
+                * controler le démarage avec la commande healthcheck
+
+            </section>
+
+            <section title="Références" data-markdown>
+                ## Références
+
+                Site de la doc Bonita: http://documentation.bonitasoft.com
+                Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
+                Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
+                Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)
+                Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
+            </section>
         </section>
         <section title="Merci">
             <h2>Merci pour votre attention</h2>
@@ -818,6 +836,22 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
             ![questions?](images/questions.jpg)
         </section>
 
+        <section title="Questions">
+            <section>
+                <div data-markdown>
+                    ## Registry Docker ?
+
+                    Oui, en interne (qui demande une conf sur chaque poste)
+                </div>
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Volume vs Container pour data?
+
+                    Conainer pour pouvoir les mettre dans le registry
+                </div>
+            </section>
+        </section>
     </section>
 </div>
 
