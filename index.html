@@ -32,17 +32,13 @@
 <body>
 <section class="reveal">
     <section class="slides">
-        <section title="sponsors">
-            <img src="images/Agile_Grenoble_2017_Sponsors.webp" width="860" height="620" />
-        </section>
         <section title="titre">
             <div data-markdown>
                 # Obtenir des feedbacks de tous vos personas plus rapidement en s’appuyant sur Docker
             </div>
-            <aside class="notes" data-markdown>
-                On voudrait vous présenter 3 cas d'utilisations d'outils (ici Docker) qui nous permis d'adopter un comportement plus agile
-                dans notre manière de travailler.
-            </aside>
+        </section>
+        <section title="sponsors">
+            <img src="images/Agile_Grenoble_2017_Sponsors.webp" width="860" height="620" />
         </section>
         <section title="presentation speakers">
             <h2>Qui sommes nous?</h2>
@@ -53,13 +49,16 @@
             <img src="images/logo_with_text.png" width="40%"/>
             </p>
         </section>
-        <!-- <section title="intro">
-            <h1>Bonitasoft</h1>
-            <ul>
-                <li>règle N°1 : changer les règles en mode bottom-up</li>
-                <li>règle N°2 : ne jamais changer la règle N°1</li>
-            </ul>
-        </section> -->
+        <section title="sommaire">
+            <h1>Sommaire</h1>
+            <h3 align="left"><i class="fa fa-book" aria-hidden="true"></i> Fluidifier la production de la documentation</h3>
+            <h3 align="left"><i class="fa fa-check-square" aria-hidden="true"></i> Fiabiliser les tests d'intégration avec Docker</h3>
+            <h3 align="left"><i class="fa fa-refresh" aria-hidden="true"></i> Faciliter les démos grâce au déploiement continu</h3>
+            <aside class="notes" data-markdown>
+                On voudrait vous présenter 3 cas d'utilisations d'outils (ici Docker) qui nous permis d'adopter un comportement plus agile
+                dans nos manières de travailler.
+            </aside>
+        </section>
         <section title="glossaire">
             <section>
                 <h1>Glossaire</h1>
@@ -72,9 +71,14 @@
                    sondage bras levés
                 </aside>
             </section>
-            <section title="Docker" data-markdown>
+            <section title="Docker">
+            <div data-markdown>
                 ## Docker
                 ![docker infrastructure](images/docker_big_picture.png)
+            </div>
+            <aside class="notes" data-markdown>
+                = outil de virtualisation plus léger que les Machines Virtuelles classiques style VMWare, VirtualBox...
+            </aside>
             </section>
             <section title="Jenkins" data-markdown>
                 ## Jenkins
@@ -105,34 +109,43 @@ look like:
 
         <section title="Bonitasoft documentation website">
             <section>
-                <h2>Cas d'utilisation n°1</h2>
-
-                <h3>site public contenant la <a href="https://documentation.bonitasoft.com">documentation</a> du produit</h3>
+                <h2><i class="fa fa-book" aria-hidden="true"></i> Fluidifier la production de la documentation</h2>
                 
                 <p align="center"><img src="images/Rognntudjuu.jpg">      </p>
 
             </section>
             <section>
                 <div data-markdown>
-                    ## Le problème ? la doc
-                    * basée sur Drupal personnalisé par l’IT (obscur pour la R&amp;D)
+                    ## Fabriquer la documentation
+                    * basée sur Drupal personnalisé par l’IT
                     * une seule personne met à jour la doc
-                    * versioning compliqué (1 copie par version)
-                    * mise en production peu fréquente (2x/an), et douloureuse
+                    * versioning compliqué
+                    * mise en production peu fréquente et douloureuse
                     * accès utilisateur fermé par login
                 </div>
-                <aside class="notes">
-                   1 version de doc par version mineure de bonita (~ 2 par an)
+                <aside class="notes" data-markdown>
+                    * (obscur pour la R&amp;D)
+                    * (1 copie par version)
+                    * 1 version de doc par version mineure de bonita (~ 2 par an)
                 </aside>
             </section>
             <section>
-                    <p><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;On ne se sent pas propriétaire du contenu de la documentation.</p>
-                    <p><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;Aucun report facile d’une modification sur toutes les versions supérieures. L'oubli est fréquent.</p>
-                    <p><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;Pas de flux de vérification : pas d'aperçu du rendu final avant sa réelle publication.</p>
+                <h2>Frustrations</h2>
+                <p align="left"><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;On ne se sent pas propriétaire du contenu de la doc.</p>
+                <p align="left"><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;Reports douloureux. Oublis fréquents.</p>
+                <p align="left"><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;Pas d'aperçu du rendu final avant sa réelle publication.</p>
             </section>
             <section data-markdown>
                 ![Thinking](images/monkey_thinking.jpeg)
                 ## Nécessité de changer le processus
+            </section>
+            <section>
+                <div data-markdown>
+                    ## Janvier 2016, la documentation passe en Open Source
+                    * suppression du login obligatoire: indexation possible par les moteurs de recherche
+                    * meilleur moteur de recherche intégré au site
+                </div>
+                <aside class="notes">moteur de recherche contextuel à la version en cours</aside>
             </section>
             <section data-markdown>
                 ## Oui, mais pour qui?
@@ -144,22 +157,22 @@ look like:
                   <tr>
                       <td style="padding:0em;border:0px">
                           <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Richard</h3>
-                          L'utilisateur (payant / de la communauté) qui lit la doc en ligne. Il est consommateur du contenu.
+                          Utilisateur (payant / de la communauté) qui lit la doc en ligne. Consommateur du contenu.
                         </td>
                       <td width="120px" style="vertical-align:top;border:0px"><img src="images/richard.png"></td>
                   </tr>
              
                     <tr>
                         <td style="padding:0em;border:0px">
-                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">MANU</h3>Le développeur de la R&D qui maintient la doc à jour. Il est producteur de contenu.
+                            <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">MANU</h3>Développeur de la R&amp;D qui maintient la doc à jour. Producteur de contenu.
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/manu.svg" ></td>
                     </tr>
                     <tr>
                         <td style="padding:0em;border:0px">
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Marielle</h3>
-                            Une personne du support client & un consultant qui font face aux clients perdus dans la doc.
-                            Ils sont facilitateurs pour améliorer la qualité du contenu.
+                            Support client / consultant qui fait face aux clients perdus dans la doc.
+                            Elle facilite l'amélioration de la qualité du contenu.
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/marielle.svg" ></td>
                     </tr>
@@ -170,50 +183,20 @@ look like:
             </section>
             <section>
                 <div data-markdown>
-                    ## Janvier 2016, la documentation passe en Open Source
-                    * indexation possible par les moteurs de recherche, suppression du login obligatoire
-                    * bookmarks possibles
-                    * meilleur moteur de recherche intégré au site
-                </div>
-                <aside class="notes">moteur de recherche est contextuel à la version en cours</aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ## Tout le contenu passe sous Contrôle de Version: Github
+                    ## Yapluka!
+                    ### Tout le contenu passe sous Contrôle de Version: Github
                     * flux standard de contribution / revue de contenu
                     * écrit en [markdown](https://fr.wikipedia.org/wiki/Markdown) en remplacement du ~~HTML~~.
-                    * Pull Request (PR) exclusivement: norme de développement chez Bonitasoft.
-                    * la PR peut être revue par Marielle, c'est notre sceau de qualité.
+                    * Pull Request (PR) exclusivement
+                    * la PR est revue par Marielle
                 </div>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>## Mise en pré-production / production automatisée</div>
+                <aside class="notes" data-markdown>
+                    * PR: norme de développement chez Bonitasoft
+                    * Marielle est incluse dans le cycle de contribution
+                </aside>
             </section>
             <section>
                 <img src="images/doc_PR_flow.png"/>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ## Et on vit ainsi dans un monde idéal?
-                </div>
-                <div class="fragment" data-markdown>### Les effets secondaires</div>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ## Séparation entre contenu et présentation
-                    Sur une PR: code source, sans rendu final
-                    ![Github Diff](images/github_diff.png)
-                </div>
-                <aside class="notes"></aside>
-            </section>
-            <section>
-                <div data-markdown>
-                    ... même si on peut voir le différenciel riche
-                    ![Github Diff](images/github_rich_diff.png)
-                </div>
                 <aside class="notes"></aside>
             </section>
             <section>
@@ -227,7 +210,7 @@ look like:
             <section>
                 <div data-markdown>
                     * Le HTML est généré
-                    * le site est publié dans un nouveau container
+                    * le site est publié dans un nouveau conteneur
                     ![Github Diff](images/Jenkins_build_result.png)
                 </div>
                 <aside class="notes" data-markdown>
@@ -245,21 +228,51 @@ look like:
             </section>
             <section>
                 <div data-markdown>
-                    ## Github est notifié du résultat du build
+                    ### Github est notifié du résultat du build
                     ![Github Diff](images/Github_checks.png)
                 </div>
                 <aside class="notes"></aside>
             </section>
             <section>
                 <div data-markdown>
-                    ## Une notification est envoyée sur l'outil de messagerie
-                    * chaque fois qu'une PR est créée ou commentée
-                    * chaque fois qu'une PR est fermée (acceptée ou refusée)
-                    * chaque fois que la CI pousse sur la Pre-Prod / Prod
+                    ### Une notification est envoyée sur l'outil de messagerie
+                    * pour chaque PR créée ou commentée
+                    * pour chaque PR fermée (acceptée ou refusée)
+                    * pour chaque mise en Pre-Prod / Prod
                     ![Github Diff](images/slack-doc-prod.png)
                 </div>
                 <aside class="notes"></aside>
             </section>
+            <section data-markdown>
+                ## Dans la foulée
+                ### On automatise la mise en pré-production / production</div>
+            </section>
+
+            <section>
+                <div data-markdown>
+                    ## Mais... mais... mais
+                </div>
+                <div class="fragment" data-markdown>
+                    ## mais c'est génial!
+                </div>
+                <div class="fragment" data-markdown>### Les effets secondaires</div>
+                <aside class="notes"></aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### Séparation entre contenu et présentation
+                    Sur une PR: code source, sans rendu final
+                    ![Github Diff](images/github_diff.png)
+                </div>
+                <aside class="notes"></aside>
+            </section>
+            <!-- section>
+                <div data-markdown>
+                    ... même si on peut voir le différenciel riche
+                    ![Github Diff](images/github_rich_diff.png)
+                </div>
+                <aside class="notes"></aside>
+            </section -->
             <section>
                 <div data-markdown>
                     ## Mise en Production
@@ -275,16 +288,15 @@ look like:
                     <h3>Richard</h3>
                     <table>
                         <tr>
-                            <td>
+                            <td width="80%">
                                 <p><i class="fa fa-trophy" aria-hidden="true"></i>
-                                    doc à jour, cycle de correction plus court</p>
+                                    doc fréquemment mise à jour</p>
                                 <p><i class="fa fa-trophy" aria-hidden="true"></i>
-                                    une version Bêta sort avec la doc déjà écrite</p>
+                                    une version Bêta sort avec sa doc</p>
                             </td>
                             <td width="120px" style="vertical-align:top;border:0px"><img src="images/richard.png"></td>
                         </tr>
                     </table>
-
                 </div>
                 <aside class="notes"></aside>
             </section>
@@ -294,11 +306,11 @@ look like:
                     <h3>Marielle / Manu</h3>
                     <table>
                         <tr>
-                            <td>
+                            <td width="84%">
                                 <p><i class="fa fa-trophy" aria-hidden="true"></i>
-                                    cycle très court de correction et de mise en prod de la doc</p>
+                                    cycle court de correction et de mise en prod</p>
                                 <p><i class="fa fa-trophy" aria-hidden="true"></i>
-                                    historique des modifications accessible à tous</p>
+                                    traçabilité des modifications</p>
                             </td>
                             <td width="120px" style="vertical-align:top;border:0px"><img src="images/marielle.svg">
                                 <img src="images/manu.svg"></td>
@@ -359,7 +371,7 @@ look like:
             <section>
                 <div data-markdown>
                     ### 1 build = 1 site complet
-                    * généré en HTML à partir des pages .md
+                    * généré en HTML à partir de Markdown
                     * pour chaque version du produit
                 </div>
                 <aside class="notes"></aside>
@@ -368,36 +380,37 @@ look like:
                 <div data-markdown>
                     ### Déclenchement du build des PR
                     * Jenkins Organization plugin
-                    * fichier Jenkinsfile commité dans le repository Github
+                    * Jenkinsfile dans le repository Github
                 </div>
-                <p><i class="fa fa-trophy" aria-hidden="true"></i> Rebuild la PR si nouveaux commits complémentaires</p>
-                <p><i class="fa fa-trophy" aria-hidden="true"></i> Image Docker mise à jour. Feedbacks très courts.</p>
+                <p align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Rebuild la PR si commits complémentaires</p>
+                <p align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Image Docker mise à jour. Feedbacks très courts.</p>
                 <aside class="notes"></aside>
             </section>
             <section>
                 <div data-markdown>
-                    ### Publication dans un container Docker
+                    ### Publication dans un conteneur Docker
                     * sur 1 port dédié (numéro de la PR)
                     * même chaîne de build que la Prod
-                    * le container Docker est supprimé si la PR est fermée
+                    * le conteneur Docker est supprimé si la PR est fermée
                 </div>
                 <aside class="notes"></aside>
             </section>
             <section>
                 <div data-markdown>
-                    ## Performance
+                    ## Bilan
                     * PR mergée: dispo en prod en moins de 2 minutes
-                    * rendu est identique
+                    * rendu identique
                     * plus de 370 PR = 370 mises en prod (depuis Janvier 2016)
                 </div>
+                <p align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Autonomie de l'équipe</p>
+                <p align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Personas satisfaits</p>
                 <aside class="notes">pas de tests automatisé type JUnit, mais même cycle de W que sur du code source</aside>
             </section>
         </section>
 
         <section title="Engine tests on all DB vendor">
             <section>
-                <h2>Cas d'utilisation n°2</h2>
-                <h3>Lancer ses tests d'intégration sur différents types de base de données</h3>
+                <h2><i class="fa fa-check-square" aria-hidden="true"></i> Fiabiliser les tests d'intégration avec Docker</h2>
             </section>
             <section align="center">
                 <h3>Bonita doit tourner sur</h3>
@@ -427,7 +440,7 @@ look like:
 
             <section data-markdown>
                 ## Ce qu'on a mis en place
-                Utilisation d’images docker déjà tunées pour les bases de données supportées.
+                Utilisation d’images docker déjà tunées pour nos besoins.
             </section>
             <section>
                 <div data-markdown>
@@ -493,8 +506,7 @@ fi
                 <div data-markdown>A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
                 </div>
 
-                <pre class="fragment"><code class="xml">
-<plugin>
+<pre class="fragment"><code class="xml"><plugin>
     <groupId>io.fabric8</groupId>
     <artifactId>docker-maven-plugin</artifactId>
     <version>0.18.1</version>
@@ -502,10 +514,9 @@ fi
 </code></pre>
             </section>
             <section>
-                <div data-markdown>A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker</div>
+                <div data-markdown>Configuration des tests d'intégration</div>
 
-<pre class="fragment"><code class="xml">
-<configuration>
+<pre class="fragment"><code class="xml"><configuration>
   <images>
     &lt;image>
       <name>${docker-mysql-image}</name>
@@ -534,9 +545,18 @@ fi
             </section>
             <section>
                 <div data-markdown>
-                    ## Tips: scalabilité
-
-                    Le plugin Maven permet de choisir un port aléatoire. Plus de conflit de ports.
+                    ## Conseils pratiques
+                </div>
+                <aside class="notes" data-markdown>
+                </aside>
+            </section>
+            <section>
+                <div data-markdown>
+                    ### Tips: scalabilité
+                    Le plugin Maven nous fournit un port aléatoire.  
+                </div>
+                <div data-markdown class="fragment">
+                    Plus de conflit de ports.
 
                     ![pigs rushing](images/pig_rush.jpg)
                 </div>
@@ -546,10 +566,8 @@ fi
             </section>
             <section>
                 <div data-markdown>
-                    ## Tips: Healthcheck
-
-                    Docker permet de s'assurer que l'image est up & running avant de lancer les tests
-
+                    ### Tips: Healthcheck
+                    Docker permet de s'assurer que l'image est up &amp; running avant de lancer les tests
                 </div>
                 <div data-markdown class="fragment">
 
@@ -560,61 +578,58 @@ MAINTAINER Laurent Leseigneur <laurent.leseigneur@bonitasoft.com>
 # restore dump on startup if dumpfile is present
 VOLUME /opt/bonita/dump
 
-COPY 0_init-databases.sql /docker-entrypoint-initdb.d/0_init-databases.sql
+COPY 0_init-databases.sql /docker-entrypoint-initdb.d/0_init-db.sql
 COPY 1_set-max_prepared_transactions.sh
 /docker-entrypoint-initdb.d/1_set-max_prepared_transactions.sh
 COPY 2_restore_dump.sh /docker-entrypoint-initdb.d/2_restore_dump.sh
 COPY healthcheck.sh /usr/local/bin/healthcheck.sh
 
-HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
+HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
 ```
                 </div>
                 <aside class="notes" data-markdown>
                     * docker fonctionne en couches, image officielle postgres + sur-couche de conf spécifique Bonita
                     * HealthCheck
-            * temps de démarrage oracle 
+                    * temps de démarrage oracle 
                 </aside>
             </section>
             <section>
                     <h1>Bénéfices</h1>
                     <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> env. clean avant chaque lancement, plus stable</div>
-                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Entre 20s & 1mn pour avoir une DB up & running</div>
+                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Entre 20s &amp; 1mn pour avoir une DB up &amp; running</div>
                     <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> lancement en local pour debugguer</div>
-                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> La R&D est complètement autonome</div>
+                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> La R&amp;D est complètement autonome</div>
+
+                    <div class="fragment" align="left"><h3><i class="fa fa-check-square" aria-hidden="true"></i> Objectif atteint !</h3></div>
                 <aside class="notes" data-markdown>
-                C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et l’installer.
-                </aside>
-            </section>
-            <section>
-                <div>
-                    <h1>Limitations</h1>
-                    <i class="fa fa-meh-o" aria-hidden="true"></i> Pas d'image docker pour MS SQL Server (compatible avec bonita).
-                    Ces tests tournent toujours "à l'ancienne".
-                </div>
-                <aside class="notes" data-markdown>
-                    Transactions distribuées XA pas supportées dans l'image docker SQL Server
-                    contraintes peu compatible avec une intégration continue sur les volumes de stockage
+                1. -
+                2. C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et l’installer.
+                3. -
+                4. Jérémy peut partir en vacances  
+                5. On vous a montré un cas d'amélioration de l'existant... (transition vers Use Case 3)...
                 </aside>
             </section>
         </section>
 
         <section title="ICI">
             <section>
+                <h2><i class="fa fa-refresh" aria-hidden="true"></i> Faciliter les démos grâce au déploiement continu</h2>
+            </section>
+            <section>
+                <h2>ICI</h2>
                 <div>
-                    <h2>Cas d'utilisation n°3</h2>
-                    <h3>ICI</h3>
                     <p>Intelligent Continuous Improvement, ou "amélioration continue assistée par l'intelligence artificielle".</p>
                     <p>Ce module utilise un algorithme de process-mining pour prédire la durée des instances de processus gérées par Bonita.</p>
                     <div class="fragment">
                          <ul>
-                            <li>Bonita et sa base de données</li>
+                            <li>Bonita</li>
+                            <li>Base de données</li>
                             <li>Elasticsearch</li>
-                            <li>add-on ICI</li>
+                            <li>Module ICI</li>
                          </ul>
                     </div>
                 </div>
                  <aside class="notes" data-markdown>
-                    FIXME: Je propose d'utiliser le mot plugin plutôt que add-on, ça parlera au plus grand nombre
                 </aside>
             </section>
 
@@ -632,7 +647,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                     <tr>
                         <td style="padding:0em;border:0px">
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Luis</h3>
-                                Développeur front end de la UI mobile first
+                            Développeur&nbsp;front&nbsp;end&nbsp;de&nbsp;la&nbsp;UI&nbsp;mobile
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/luis.png" height="120px"></td>
                     </tr>
@@ -664,7 +679,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                 </div>
                 <aside class="notes">
                     leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
-                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+                    et consommateur de ressources (8PR ouvertes = 32 conteneur Dockers
 
                     ports aléatoires publiés en commentaire de la pull requets sur github
 
@@ -739,7 +754,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                 </div>
                 <aside class="notes">
                     leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
-                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+                    et consommateur de ressources (8PR ouvertes = 32 conteneur Dockers
 
                     ports aléatoires publiés en commentaire de la pull requets sur github
                 </aside>
@@ -794,7 +809,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
                 </div>
                 <aside class="notes">
                     leçon apprise: on a enlevé le deploy systématique des PR. content de savoit le faire, mais inutile
-                    et consommateur de ressources (8PR ouvertes = 32 container Dockers
+                    et consommateur de ressources (8PR ouvertes = 32 conteneur Dockers
 
                     ports aléatoires publiés en commentaire de la pull requets sur github
                 </aside>
@@ -889,9 +904,9 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/local/bin/healthcheck.sh"]
             </section>
             <section>
                 <div data-markdown>
-                    ## Volume vs Container pour data?
+                    ## Volume vs Conteneur pour data?
 
-                    Container pour pouvoir les mettre dans le registry
+                    Conteneur pour pouvoir les mettre dans le registry
                 </div>
             </section>
         </section>
