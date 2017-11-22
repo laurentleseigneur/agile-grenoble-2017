@@ -585,7 +585,7 @@ COPY 0_init-databases.sql /docker-entrypoint-initdb.d/0_init-db.sql
 COPY 1_set-max_prepared_transactions.sh
 /docker-entrypoint-initdb.d/1_set-max_prepared_transactions.sh
 COPY 2_restore_dump.sh /docker-entrypoint-initdb.d/2_restore_dump.sh
-COPY healthcheck.sh /usr/local/bin/healthcheck.sh
+COPY healthcheck.sh /usr/bin/healthcheck.sh
 
 HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
 ```
