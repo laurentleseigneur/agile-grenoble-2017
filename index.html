@@ -467,8 +467,8 @@
                 </table>
                 <aside class="notes" data-markdown>
                     * Manu: il veut que ses tests d'intégration tournent et soient verts
-                    * Truc : 2 raisons d'être gentil
                     * BUS factor
+                    * Manu, il flippe le jour où Chuck est pas là et qu'un serveur est en rade
                 </aside>
             </section>
             <section align="center">
@@ -640,16 +640,18 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
 ```
                 </div>
                 <aside class="notes" data-markdown>
-                    * En effet, Docker répond OK au start, même si initialization n'est pas terminée
+                    * En effet, Docker répond OK au start, même si initialization pas terminée
                 </aside>
             </section>
             <section>
-                <h2>Gain pour les Personas</h2>
+                <h1>Bénéfices</h1>
                 <table>
                     <tr>
                         <td style="padding:0em;border:0px">
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Manu</h3>
-                            Autonomie, pipeline de test d'intégration fiable
+                            <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> env. clean avant chaque lancement, plus stable</div>
+                            <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Entre 20s &amp; 1mn pour avoir une DB up &amp; running</div>
+                            <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> lancement en local pour debugguer</div>
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/manu.svg"></td>
                     </tr>
@@ -657,25 +659,13 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
                     <tr>
                         <td style="padding:0em;border:0px">
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Chuck</h3>
-                            suppression du <b>bus factor</b>
+                            <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> La R&amp;D est complètement autonome</div>
+                            <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> suppression du <b>bus factor</b></div>
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/truc.png" width="120px"></td>
                     </tr>
-
                 </table>
-                <aside class="notes">
-                    * Truc : 2 raisons d'être gentil
-                    * BUS factor
-                </aside>
-            </section>
-            <section>
-                    <h1>Bénéfices</h1>
-                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> env. clean avant chaque lancement, plus stable</div>
-                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> Entre 20s &amp; 1mn pour avoir une DB up &amp; running</div>
-                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> lancement en local pour debugguer</div>
-                    <div class="fragment" align="left"><i class="fa fa-trophy" aria-hidden="true"></i> La R&amp;D est complètement autonome</div>
-
-                    <div class="fragment" align="left"><h3><i class="fa fa-check-square" aria-hidden="true"></i> Objectif atteint !</h3></div>
+                <div class="fragment" align="left"><h3><i class="fa fa-check-square" aria-hidden="true"></i> Objectif atteint !</h3></div>
                 <aside class="notes" data-markdown>
                 1. -
                 2. C’est plus rapide que d’aller voir Chuck pour lui demander un serveur et l’installer.
