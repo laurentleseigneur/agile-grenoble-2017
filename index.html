@@ -288,7 +288,9 @@
                     Sur une PR: code source, sans rendu final
                     ![Github Diff](images/github_diff.png)
                 </div>
-                <aside class="notes"></aside>
+                <aside class="notes">
+                    C'est pourquoi on a mis en place le déploiement dans un conteneur
+                </aside>
             </section>
             <!-- section>
                 <div data-markdown>
@@ -676,7 +678,8 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
                 2. C’est plus rapide que d’aller voir Chuck pour lui demander un serveur et l’installer.
                 3. -
                 4. Chuck peut partir en vacances
-                5. On vous a montré un cas d'amélioration de l'existant... (transition vers Use Case 3)...
+                5. Si Chuck se fait taper par un bus, tant pis si le bus est cassé!
+                6. On vous a montré un cas d'amélioration de l'existant... (transition vers Use Case 3)...
                 </aside>
             </section>
         </section>
@@ -925,31 +928,51 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
         <section title="conclusion">
             <section>
                 <h2><i class="fa fa-balance-scale" aria-hidden="true"></i> Bilan</h2>
+                <aside class="notes" data-markdown>
+                    Petit bilan: qu'est-ce qu'on retient de tout ça?
+                </aside>
             </section>
-            <section data-markdown>
-                ## Les choses à améliorer
+            <section>
+                <div data-markdown>
+                    ## Les choses à améliorer
 
-                * temps de démarrage de certaines base de données (O....E)
-                * monitorer l'espace disque consommé par Docker
+                    * temps de démarrage de certaines base de données (O....E)
+                    * monitorer l'espace disque consommé par Docker
+                </div>
+                <aside class="notes" data-markdown>
+                    Penser à nettoyer les conteneurs quand on ne s'en sert plus
+                </aside>
             </section>
-            <section data-markdown>
-                ## Leçons apprises
+            <section>
+                <div data-markdown>
+                    ## Leçons apprises
 
-                * tout scripter
-                * idéalement dans le même repository
-                * utiliser la même version de Docker / Jenkins partout
-                * controler le démarage avec la commande healthcheck
+                    * tout scripter
+                    * idéalement dans le même repository
+                    * utiliser la même version de Docker / Jenkins partout
+                    * controler le démarage avec la commande healthcheck
+                </div>
+                <aside class="notes" data-markdown>
+                    1. tout scripter: pratique piquée aux DevOps
+                    2. ça facilite les PR
+                </aside>
+
             </section>
         </section>
 
-        <section title="Références" data-markdown>
-            ## Références
+        <section title="Références">
+            <div data-markdown>
+                ## Références
 
-            * Site de la doc Bonita: http://documentation.bonitasoft.com
-            * Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
-            * Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
-            * Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)
-            * Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
+                * Site de la doc Bonita: http://documentation.bonitasoft.com
+                * Plugin Maven Docker: [Fabric8](https://maven.fabric8.io/)
+                * Plugin Gradle pour Docker: [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
+                * Image officielle docker avec des vrais morceaux de [Bonita](https://hub.docker.com/_/bonita/)
+                * Cette [présentation](https://laurentleseigneur.github.io/agile-grenoble-2017/): https://github.com/laurentleseigneur/agile-grenoble-2017
+            </div>
+            <aside class="notes" data-markdown>
+                On vous a mis des références vers les briques dont on vous a parlé
+            </aside>
         </section>
 
         <section title="Merci">
