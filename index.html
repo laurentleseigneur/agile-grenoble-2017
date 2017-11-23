@@ -50,6 +50,9 @@
 
             <p><i class="fa fa-twitter" aria-hidden="true"></i> @LLeseigneur  <i class="fa fa-twitter" aria-hidden="true"></i> @bonitasoft </p>
 
+            <aside class="notes" data-markdown>
+                Bonita: outil d'automatisation de Processus ....
+            </aside>
         </section>
         <section title="sommaire">
             <h1>Sommaire</h1>
@@ -448,7 +451,7 @@
                     <tr>
                         <td style="padding:0em;border:0px">
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Manu</h3>
-                            R&D: En charge du produit et de sa qualité
+                            R&amp;D: En charge du produit et de sa qualité
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/manu.svg"></td>
                     </tr>
@@ -456,13 +459,14 @@
                     <tr>
                         <td style="padding:0em;border:0px">
                             <h3 style="margin-top:15px;margin-bottom:0px;padding:0px">Chuck</h3>
-                           IT: L'homme qui parle à l'oreille des serveurs<br/>
+                            IT: L'homme qui parle à l'oreille des serveurs<br/>
                         </td>
                         <td width="120px" style="vertical-align:top;border:0px"><img src="images/truc.png" width="120px"></td>
                     </tr>
                    
                 </table>
-                <aside class="notes">
+                <aside class="notes" data-markdown>
+                    * Manu: il veut que ses tests d'intégration tournent et soient verts
                     * Truc : 2 raisons d'être gentil
                     * BUS factor
                 </aside>
@@ -481,14 +485,14 @@
 
             <section data-markdown>
                 ## Ce qu'on a mis en place
-                Utilisation d’images docker déjà tunées pour nos besoins.
+                Utilisation d’images docker déjà ajustées pour nos besoins
             </section>
             <section>
                 <img src="images/test_engine.jpg">
             </section>
             <section>
                 <div data-markdown>
-                    ## Ce qu'on a mis en place
+                    ### Image Docker
                     La **configuration** est déjà dans l'image
                 </div>
 <div data-markdown class="fragment">
@@ -496,8 +500,8 @@
 #!/bin/bash
 
 #max_prepared_transactions
-sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions = 100/"
-"$PGDATA"/postgresql.conf
+sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/\
+max_prepared_transactions = 100/" "$PGDATA"/postgresql.conf
 ```
 
                 </div>
@@ -508,9 +512,9 @@ sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions =
             </section>
             <section>
                 <div data-markdown>
-                ## Ce qu'on a mis en place
-                Les **schémas / databases** nécessaires sont déjà dans l'image
-                Les **users** de connexion sont déjà dans l'image
+                    ### Image Docker
+                    Les **schémas / databases** nécessaires sont déjà dans l'image
+                    Les **users** de connexion sont déjà dans l'image
                 </div>
                 <div data-markdown class="fragment">
 
@@ -527,16 +531,15 @@ CONNECTION LIMIT = -1;
             </section>
             <section>
                 <div data-markdown>
-                    ## Ce qu'on a mis en place
+                    ### Image Docker
                     Possibilité de précharger des données à partir d'un dump
-
                 </div>
                 <div data-markdown class="fragment">
 
 ```
 #!/bin/bash
 if [ -f /opt/bonita/dump/bonita.dump ]; then
-psql -h localhost -p 5432 -Ubonita bonita < /opt/bonita/dump/bonita.dump
+psql -h localhost -p 5432 -Uuser bonita < /opt/bonita/dump/bonita.dump
 date > /var/lib/postgresql/restore.lastExecution
 echo "Database restored"
 fi
@@ -547,7 +550,9 @@ fi
                 </aside>
             </section>
             <section>
-                <div data-markdown>A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
+                <div data-markdown>
+                    ### Intégration Maven
+                    A chaque lancement des tests d'intégration, on lance un nouveau conteneur Docker
                 </div>
 
 <pre class="fragment"><code class="xml"><plugin>
@@ -558,7 +563,10 @@ fi
 </code></pre>
             </section>
             <section>
-                <div data-markdown>Configuration des tests d'intégration</div>
+                <div data-markdown>
+                    ### Intégration Maven
+                    Configuration des tests d'intégration
+                </div>
 
 <pre class="fragment"><code class="xml"><configuration>
   <images>
@@ -579,7 +587,7 @@ fi
             </section>
             <section>
                 <div data-markdown>
-                    ## Comment?
+                    ### Activation
                     * Activation par profils maven (1 profil pour chaque DB vendor)
                     * Idem avec plugin gradle
                 </div>
@@ -632,9 +640,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
 ```
                 </div>
                 <aside class="notes" data-markdown>
-                    * docker fonctionne en couches, image officielle postgres + sur-couche de conf spécifique Bonita
-                    * HealthCheck
-                    * temps de démarrage oracle 
+                    * En effet, Docker répond OK au start, même si initialization n'est pas terminée
                 </aside>
             </section>
             <section>
@@ -672,9 +678,9 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
                     <div class="fragment" align="left"><h3><i class="fa fa-check-square" aria-hidden="true"></i> Objectif atteint !</h3></div>
                 <aside class="notes" data-markdown>
                 1. -
-                2. C’est plus rapide que d’aller voir Jeremy pour lui demander un serveur et l’installer.
+                2. C’est plus rapide que d’aller voir Chuck pour lui demander un serveur et l’installer.
                 3. -
-                4. Jérémy peut partir en vacances  
+                4. Chuck peut partir en vacances
                 5. On vous a montré un cas d'amélioration de l'existant... (transition vers Use Case 3)...
                 </aside>
             </section>
@@ -980,7 +986,7 @@ HEALTHCHECK --interval=5s --retries=120 CMD ["/usr/bin/healthcheck.sh"]
             </section>
         </section>
     </section>
-</div>
+</section>
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
